@@ -3,111 +3,214 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Recallant: AI search visibility</title>
-<meta name="description" content="Recallant measures whether AI assistants like Perplexity and ChatGPT name your SaaS product when buyers ask for recommendations, and shows you what to fix.">
-<style>
-  :root {
-    --bg: #fbfaf7;
-    --text: #1d1d1b;
-    --muted: #5b5b57;
-    --line: #e4e1da;
-    --accent: #2f5d50;
-    --card: #ffffff;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #151614;
-      --text: #ecebe6;
-      --muted: #a6a59f;
-      --line: #2c2d2a;
-      --accent: #8cc3b1;
-      --card: #1c1d1b;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 56px 16px 72px; }
-  .brand { font-weight: 700; letter-spacing: 0.02em; color: var(--accent); }
-  h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.2; margin: 24px 0 16px; }
-  h2 { font-size: 20px; margin: 48px 0 12px; }
-  p { margin: 0 0 16px; }
-  .lead { font-size: 19px; color: var(--muted); }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 12px 0;
-  }
-  .card strong { display: block; margin-bottom: 4px; }
-  .card a { display: inline-block; margin-top: 8px; font-weight: 600; }
-  ol { padding-left: 22px; margin: 0; }
-  li { margin-bottom: 10px; }
-  a { color: var(--accent); }
-  .cta {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 12px 20px;
-    border-radius: 8px;
-    background: var(--accent);
-    color: var(--bg);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  footer {
-    margin-top: 56px;
-    padding-top: 20px;
-    border-top: 1px solid var(--line);
-    color: var(--muted);
-    font-size: 15px;
-  }
-</style>
+<title>Recallant: AI search visibility for B2B brands</title>
+<meta name="description" content="Recallant measures what ChatGPT, Gemini and Perplexity say about your brand, then improves the content, PR, website and listings those answers rely on.">
+<link rel="canonical" href="https://recallant.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Recallant">
+<meta property="og:title" content="Recallant: AI search visibility for B2B brands">
+<meta property="og:description" content="Recallant measures what ChatGPT, Gemini and Perplexity say about your brand, then improves the content, PR, website and listings those answers rely on.">
+<meta property="og:url" content="https://recallant.com/">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Recallant",
+  "url": "https://recallant.com",
+  "email": "hello@recallant.com",
+  "description": "Recallant measures and improves how AI assistants like ChatGPT, Gemini and Perplexity describe and recommend B2B brands.",
+  "founder": {
+    "@type": "Person",
+    "name": "Prasanth G",
+    "sameAs": [
+      "https://www.linkedin.com/in/prasanth-gorripati-44805b209/"
+    ]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bengaluru",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/prasanth-gorripati-44805b209/"
+  ]
+}
+</script>
 </head>
 <body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="./">Recallant</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="services.html">Services</a>
+      <a href="plans.html">Plans</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a class="pill-sm" href="mailto:hello@recallant.com?subject=Free%20AI%20visibility%20snapshot">Free snapshot</a>
+    </nav>
+    <details class="nav-menu">
+      <summary aria-label="Menu">Menu</summary>
+      <div class="menu-panel">
+        <a href="services.html">Services</a>
+        <a href="plans.html">Plans</a>
+        <a href="research.html">Research</a>
+        <a href="about.html">About</a>
+        <a href="mailto:hello@recallant.com?subject=Free%20AI%20visibility%20snapshot">Free snapshot</a>
+      </div>
+    </details>
+  </div>
+</header>
 <main>
-  <div class="brand">Recallant</div>
-
-  <h1>When buyers ask AI for a recommendation, is your product in the answer?</h1>
-  <p class="lead">More software buyers now ask Perplexity or ChatGPT "what's the best tool for…" before they visit a single vendor site. Recallant measures whether those answers name your product, which sources they rely on, and what you can change.</p>
-
-  <h2>What we found in October 2026</h2>
-  <div class="card">
-    <strong>Helpdesk software</strong>
-    44 buying questions, each asked 5 times on Perplexity (220 answers). Some vendors' own pages were used as sources in every answer to a question, yet the vendor was never named as an option.
-    <a href="helpdesk-study.html">Read the full helpdesk study</a>
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">AI search visibility</p>
+    <h1 class="display">Be the answer.</h1>
+    <p class="lede">Your buyers now ask ChatGPT, Gemini and Perplexity what to buy. Recallant measures what those assistants say about you, then works on the content, coverage and pages that change it.</p>
+    <div class="cta-row">
+      <a class="pill" href="mailto:hello@recallant.com?subject=Free%20AI%20visibility%20snapshot">Get a free snapshot</a>
+      <a class="more" href="services.html">See what we do</a>
+    </div>
   </div>
-  <div class="card">
-    <strong>IT management software</strong>
-    44 ITSM and MSP buying questions, 220 Perplexity answers. One MSP tool was named in over a third of answers but recommended first in only 1 of 70.
+</section>
+
+<section class="section inverse">
+  <div class="wrap center">
+    <p class="eyebrow">From our October 2026 helpdesk study</p>
+    <h2 class="headline">Being cited isn't<br>being chosen.</h2>
+    <p class="lede">We asked Perplexity 44 questions that helpdesk buyers ask, 5 times each, and read every answer.</p>
+    <div class="stats">
+      <div>
+        <div class="stat-num">220</div>
+        <div class="stat-label">AI answers analysed</div>
+      </div>
+      <div>
+        <div class="stat-num">3×</div>
+        <div class="stat-label">Help Scout's site was cited three times as often (21% of answers) as Help Scout was recommended first (7%)</div>
+      </div>
+      <div>
+        <div class="stat-num">8 of 10</div>
+        <div class="stat-label">how-to questions got answers that named no helpdesk product at all</div>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="more" href="helpdesk-study.html">Read the study</a>
+    </div>
   </div>
-  <p>The IT management study is available on request.</p>
+</section>
 
-  <h2>How it works</h2>
-  <ol>
-    <li><strong>Snapshot (free):</strong> 20 questions your buyers actually ask, run several times on Perplexity. A one-page summary of where you're named, where you're missing, and which pages AI is citing.</li>
-    <li><strong>Audit:</strong> a full question set across your category, with competitor share of voice and the specific pages and sources to fix first.</li>
-    <li><strong>Re-check:</strong> the same questions re-run later, so you can see whether the changes moved the answers.</li>
-  </ol>
+<section class="section alt">
+  <div class="wrap">
+    <div class="center">
+      <h2 class="headline">Everything AI reads<br>about your brand.</h2>
+      <p class="lede">AI assistants build their answers from your site, the articles that rank, the lists that compare you and the reviews about you. We work on all of it, as one monthly plan.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="tile">
+        <span class="tile-num">Measure</span>
+        <h3>AI visibility consulting</h3>
+        <p>Monthly tracking of where ChatGPT, Gemini and Perplexity name you, which sources they trust, and what to fix first.</p>
+        <a class="more" href="services.html#visibility">Learn more</a>
+      </div>
+      <div class="tile">
+        <span class="tile-num">Publish</span>
+        <h3>Articles and reports</h3>
+        <p>Research and articles that answer the exact questions your buyers ask, written so assistants can quote them.</p>
+        <a class="more" href="services.html#content">Learn more</a>
+      </div>
+      <div class="tile">
+        <span class="tile-num">Earn</span>
+        <h3>PR management</h3>
+        <p>Accurate mentions in the publications, comparison lists and review sites that AI answers rely on.</p>
+        <a class="more" href="services.html#pr">Learn more</a>
+      </div>
+      <div class="tile">
+        <span class="tile-num">Build</span>
+        <h3>Website creation and care</h3>
+        <p>Fast, clearly structured sites that people trust and machines can read, kept current every month.</p>
+        <a class="more" href="services.html#websites">Learn more</a>
+      </div>
+      <div class="tile">
+        <span class="tile-num">Protect</span>
+        <h3>Brand management</h3>
+        <p>One consistent story across your profiles and listings, and corrections when an assistant gets you wrong.</p>
+        <a class="more" href="services.html#brand">Learn more</a>
+      </div>
+      <div class="tile">
+        <span class="tile-num">Start here</span>
+        <h3>Free snapshot</h3>
+        <p>20 questions your buyers ask, run several times. One page on where you're named, where you're missing, and why.</p>
+        <a class="more" href="mailto:hello@recallant.com?subject=Free%20AI%20visibility%20snapshot">Request yours</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <h2>Who it's for</h2>
-  <p>B2B SaaS teams, especially helpdesk, IT management and customer support tools, who want to know how AI assistants describe their category before their buyers do.</p>
+<section class="section">
+  <div class="wrap">
+    <div class="center">
+      <h2 class="headline">How it works.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Snapshot</h3>
+        <p>We run the questions your buyers ask and show you, on one page, what AI says today. Free, and no call needed.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Plan</h3>
+        <p>We agree on the gaps worth closing and the plan that fits: measurement only, or content, PR, website and brand work too.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Every month</h3>
+        <p>We do the work, then re-run the same questions, so you can see what moved and what didn't.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <h2>Get a free snapshot</h2>
-  <p>Email the questions your buyers ask, or just your product name, and I'll send back a one-page snapshot. No call needed.</p>
-  <a class="cta" href="mailto:hello@recallant.com?subject=Free%20AI%20visibility%20snapshot">hello@recallant.com</a>
-
-  <footer>
-    Prasanth G · Recallant: AI search visibility · Bengaluru, India<br>
-    <a href="mailto:hello@recallant.com">hello@recallant.com</a> ·
-    <a href="https://www.linkedin.com/in/prasanth-gorripati-44805b209/">LinkedIn</a>
-  </footer>
+<section class="section alt">
+  <div class="wrap center">
+    <h2 class="headline">See what AI says<br>about you.</h2>
+    <p class="lede">Send your product name. You'll get a one-page snapshot by email.</p>
+    <div class="cta-row">
+      <a class="pill" href="mailto:hello@recallant.com?subject=Free%20AI%20visibility%20snapshot">Get a free snapshot</a>
+      <a class="more" href="plans.html">Compare plans</a>
+    </div>
+  </div>
+</section>
 </main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Recallant</h4>
+        <p>AI search visibility for B2B brands.</p>
+        <p>Bengaluru, India</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="services.html">Services</a>
+        <a href="plans.html">Plans</a>
+        <a href="research.html">Research</a>
+        <a href="about.html">About</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:hello@recallant.com">hello@recallant.com</a>
+        <a href="https://www.linkedin.com/in/prasanth-gorripati-44805b209/" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Recallant. Prasanth G.</span>
+      <span>We never buy reviews, links or mentions.</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

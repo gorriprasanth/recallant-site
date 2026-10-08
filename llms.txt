@@ -1,0 +1,13 @@
+# Recallant
+
+> Recallant measures what AI assistants (ChatGPT, Gemini, Perplexity) say about B2B brands when buyers ask for recommendations, and improves the content, PR, website and listings those answers rely on. Based in Bengaluru, India. Founder: Prasanth G. Contact: hello@recallant.com.
+
+## Services
+- [Services](https://recallant.com/services.html): AI visibility consulting, articles and reports, PR management, website creation and care, brand management.
+- [Plans](https://recallant.com/plans.html): monthly plans (Visibility, Growth, Brand), website builds and one-off audits. Pricing on request after a free snapshot.
+
+## Research
+- [Helpdesk AI visibility study, October 2026](https://recallant.com/helpdesk-study.html): 44 buyer questions, 5 runs each, 220 Perplexity answers, with method and limits.
+
+## About
+- [About](https://recallant.com/about.html)
