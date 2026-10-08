@@ -323,7 +323,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Article (studies, about) ---------- */
 
-.article { padding: 72px 0 96px; }
+.article { padding-top: 72px; padding-bottom: 96px; }
 .article h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 12px; }
 .article h2 { font-size: 28px; letter-spacing: -0.02em; margin: 56px 0 14px; line-height: 1.2; }
 .article h3 { font-size: 21px; margin: 32px 0 10px; }
@@ -380,3 +380,15 @@ img { max-width: 100%; display: block; }
 .footer-base { padding-top: 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
 .service .eyebrow { color: var(--accent); font-size: 17px; margin: 0 0 8px; }
 .section > .wrap > .plans:first-child { margin-top: 0; }
+
+/* ---------- Additions: email note, founder photo, sample snapshot ---------- */
+.email-note { margin: 16px 0 0; font-size: 15px; color: var(--text-2); text-align: center; }
+.email-note.left { text-align: left; }
+.inverse .email-note { color: var(--text-inverse-2); }
+.founder { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin: 8px 0 20px; }
+.note-box { background: var(--bg-alt); border-radius: var(--radius-sm); padding: 16px 20px; font-size: 15px; color: var(--text-2); margin-bottom: 32px; line-height: 1.5; }
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 8px 0 8px; }
+@media (max-width: 640px) { .kpis { grid-template-columns: 1fr; } }
+.kpi { background: var(--bg-alt); border-radius: var(--radius); padding: 24px; }
+.kpi-num { font-size: 44px; font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
+.kpi-label { margin-top: 8px; font-size: 15px; color: var(--text-2); line-height: 1.4; }

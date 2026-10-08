@@ -9,5 +9,7 @@
 ## Research
 - [Helpdesk AI visibility study, October 2026](https://recallant.com/helpdesk-study.html): 44 buyer questions, 5 runs each, 220 Perplexity answers, with method and limits.
 
+- [Sample snapshot](https://recallant.com/sample-snapshot.html): what the free one-page snapshot looks like, using Freshdesk's numbers from the helpdesk study.
+
 ## About
 - [About](https://recallant.com/about.html)
