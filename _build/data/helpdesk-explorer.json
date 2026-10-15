@@ -1,0 +1,1816 @@
+[
+ {
+  "id": "d01",
+  "q": "What is the best helpdesk software for a small business?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Help Scout",
+    5
+   ],
+   [
+    "Zoho Desk",
+    5
+   ],
+   [
+    "Intercom",
+    3
+   ]
+  ],
+  "first": [
+   [
+    "Freshdesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "g2.com",
+    5
+   ],
+   [
+    "happyfox.com",
+    5
+   ],
+   [
+    "helpdesk.com",
+    5
+   ],
+   [
+    "helpscout.com",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "d02",
+  "q": "What is the best customer support software for a SaaS startup?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Plain",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Tidio",
+    3
+   ],
+   [
+    "Intercom",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Plain",
+    4
+   ],
+   [
+    "Intercom",
+    1
+   ]
+  ],
+  "sources": [
+   [
+    "editorialge.com",
+    5
+   ],
+   [
+    "plain.com",
+    5
+   ],
+   [
+    "rework.com",
+    5
+   ],
+   [
+    "helpscout.com",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "d03",
+  "q": "Which ticketing system is best for a 10-person support team?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Help Scout",
+    4
+   ],
+   [
+    "Zendesk",
+    4
+   ],
+   [
+    "Hiver",
+    3
+   ],
+   [
+    "Freshdesk",
+    2
+   ],
+   [
+    "HappyFox",
+    1
+   ],
+   [
+    "Jira Service Management",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Freshdesk",
+    2
+   ],
+   [
+    "Help Scout",
+    2
+   ],
+   [
+    "Hiver",
+    1
+   ]
+  ],
+  "sources": [
+   [
+    "hiverhq.com",
+    3
+   ],
+   [
+    "happyfox.com",
+    1
+   ],
+   [
+    "helpscout.com",
+    1
+   ],
+   [
+    "techtimes.com",
+    1
+   ]
+  ]
+ },
+ {
+  "id": "d04",
+  "q": "What is the best affordable helpdesk with a free plan?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Zoho Desk",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ]
+  ],
+  "first": [
+   [
+    "Zoho Desk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "cloudtalk.io",
+    5
+   ],
+   [
+    "nextiva.com",
+    5
+   ],
+   [
+    "g2.com",
+    4
+   ],
+   [
+    "intercom.com",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "d05",
+  "q": "Which customer service platform is best for an ecommerce store?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Gorgias",
+    5
+   ],
+   [
+    "Tidio",
+    5
+   ],
+   [
+    "Zendesk",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Gorgias",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "cloudtalk.io",
+    5
+   ],
+   [
+    "edesk.com",
+    5
+   ],
+   [
+    "quiq.com",
+    5
+   ],
+   [
+    "shopify.com",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "d06",
+  "q": "What is the best omnichannel support software for email, chat and WhatsApp?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Intercom",
+    2
+   ]
+  ],
+  "first": [
+   [
+    "Freshdesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "kayako.com",
+    5
+   ],
+   [
+    "chatbase.co",
+    3
+   ],
+   [
+    "worldmetrics.org",
+    2
+   ],
+   [
+    "capacity.com",
+    1
+   ]
+  ]
+ },
+ {
+  "id": "d07",
+  "q": "What helpdesk software do mid-size companies use?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Freshservice",
+    5
+   ],
+   [
+    "HubSpot",
+    5
+   ],
+   [
+    "Jira Service Management",
+    5
+   ],
+   [
+    "ManageEngine ServiceDesk Plus",
+    5
+   ],
+   [
+    "Zoho Desk",
+    5
+   ],
+   [
+    "Front",
+    4
+   ],
+   [
+    "Intercom",
+    3
+   ],
+   [
+    "Help Scout",
+    2
+   ]
+  ],
+  "first": [
+   [
+    "Zendesk",
+    4
+   ],
+   [
+    "Freshdesk",
+    1
+   ]
+  ],
+  "sources": [
+   [
+    "g2.com",
+    5
+   ],
+   [
+    "intercom.com",
+    5
+   ],
+   [
+    "rework.com",
+    5
+   ],
+   [
+    "goworkwize.com",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "d08",
+  "q": "What is the best IT service desk software for a growing company?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Freshservice",
+    5
+   ],
+   [
+    "Jira Service Management",
+    5
+   ],
+   [
+    "ServiceNow",
+    4
+   ],
+   [
+    "ManageEngine ServiceDesk Plus",
+    2
+   ]
+  ],
+  "first": [
+   [
+    "Freshservice",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "g2.com",
+    5
+   ],
+   [
+    "deel.com",
+    2
+   ],
+   [
+    "selectsoftwarereviews.com",
+    2
+   ],
+   [
+    "motadata.com",
+    1
+   ]
+  ]
+ },
+ {
+  "id": "d09",
+  "q": "Which helpdesk has the best AI chatbot for customer support?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Intercom",
+    5
+   ],
+   [
+    "Tidio",
+    5
+   ],
+   [
+    "Freshdesk",
+    3
+   ]
+  ],
+  "first": [
+   [
+    "Intercom",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "cloudtalk.io",
+    5
+   ],
+   [
+    "cotera.co",
+    5
+   ],
+   [
+    "g2.com",
+    5
+   ],
+   [
+    "eesel.ai",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "d10",
+  "q": "What is the best customer support software for a B2B company?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Plain",
+    5
+   ],
+   [
+    "HubSpot",
+    5
+   ],
+   [
+    "Zoho Desk",
+    4
+   ],
+   [
+    "Intercom",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Zendesk",
+    3
+   ],
+   [
+    "Freshdesk",
+    1
+   ],
+   [
+    "Plain",
+    1
+   ]
+  ],
+  "sources": [
+   [
+    "kayako.com",
+    4
+   ],
+   [
+    "plain.com",
+    4
+   ],
+   [
+    "teamsupport.com",
+    3
+   ],
+   [
+    "unite.ai",
+    1
+   ]
+  ]
+ },
+ {
+  "id": "d11",
+  "q": "Which support ticketing tools are easiest to set up?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Hiver",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "SupportBee",
+    5
+   ],
+   [
+    "Help Scout",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Hiver",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "happyfox.com",
+    5
+   ],
+   [
+    "hiverhq.com",
+    5
+   ],
+   [
+    "supportbee.com",
+    5
+   ],
+   [
+    "techbullion.com",
+    3
+   ]
+  ]
+ },
+ {
+  "id": "d12",
+  "q": "What is the best helpdesk software for companies in India?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Freshservice",
+    5
+   ],
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "ManageEngine ServiceDesk Plus",
+    3
+   ],
+   [
+    "Zoho Desk",
+    3
+   ]
+  ],
+  "first": [
+   [
+    "Freshdesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "indiatimes.com",
+    5
+   ],
+   [
+    "itforsme.in",
+    5
+   ],
+   [
+    "softwaresuggest.com",
+    5
+   ],
+   [
+    "productgrowth.in",
+    3
+   ]
+  ]
+ },
+ {
+  "id": "d13",
+  "q": "What is the best shared inbox tool for customer support?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Help Scout",
+    5
+   ],
+   [
+    "Hiver",
+    5
+   ],
+   [
+    "Zendesk",
+    3
+   ],
+   [
+    "HubSpot",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Help Scout",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "guideflow.com",
+    5
+   ],
+   [
+    "helpscout.com",
+    5
+   ],
+   [
+    "hubspot.com",
+    5
+   ],
+   [
+    "kayako.com",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "d14",
+  "q": "Which customer support platforms have the best knowledge base features?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Salesforce Service Cloud",
+    5
+   ],
+   [
+    "Zoho Desk",
+    5
+   ]
+  ],
+  "first": [
+   [
+    "Zendesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "freshworks.com",
+    5
+   ],
+   [
+    "g2.com",
+    5
+   ],
+   [
+    "salesforce.com",
+    5
+   ],
+   [
+    "techtarget.com",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "d15",
+  "q": "What is the best helpdesk for a remote support team?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Help Scout",
+    3
+   ],
+   [
+    "HappyFox",
+    2
+   ],
+   [
+    "Zendesk",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Freshdesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "everhour.com",
+    5
+   ],
+   [
+    "freshworks.com",
+    5
+   ],
+   [
+    "zipdo.co",
+    5
+   ],
+   [
+    "gitnux.org",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "d16",
+  "q": "Top customer service software for 2026?",
+  "cat": "Best for",
+  "runs": 5,
+  "named": [
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Intercom",
+    5
+   ],
+   [
+    "Zoho Desk",
+    5
+   ],
+   [
+    "Freshdesk",
+    4
+   ],
+   [
+    "LiveAgent",
+    3
+   ],
+   [
+    "Salesforce Service Cloud",
+    3
+   ],
+   [
+    "Help Scout",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Zendesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "cloudtalk.io",
+    5
+   ],
+   [
+    "g2.com",
+    5
+   ],
+   [
+    "salesforce.com",
+    5
+   ],
+   [
+    "text.com",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "a01",
+  "q": "What are the best Zendesk alternatives?",
+  "cat": "Alternatives",
+  "runs": 5,
+  "named": [
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Help Scout",
+    5
+   ],
+   [
+    "Intercom",
+    5
+   ],
+   [
+    "Zoho Desk",
+    5
+   ],
+   [
+    "Gorgias",
+    4
+   ],
+   [
+    "Jira Service Management",
+    4
+   ],
+   [
+    "Front",
+    3
+   ],
+   [
+    "HubSpot",
+    3
+   ],
+   [
+    "Salesforce Service Cloud",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Freshdesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "chatbase.co",
+    5
+   ],
+   [
+    "eesel.ai",
+    5
+   ],
+   [
+    "zapier.com",
+    5
+   ],
+   [
+    "ringly.io",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "a02",
+  "q": "What are cheaper alternatives to Zendesk for a small team?",
+  "cat": "Alternatives",
+  "runs": 5,
+  "named": [
+   [
+    "Zoho Desk",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Help Scout",
+    5
+   ],
+   [
+    "HubSpot",
+    5
+   ],
+   [
+    "Gorgias",
+    3
+   ],
+   [
+    "Front",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Zoho Desk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "getmacha.com",
+    5
+   ],
+   [
+    "eesel.ai",
+    3
+   ],
+   [
+    "chatbase.co",
+    2
+   ],
+   [
+    "helpdesk.com",
+    2
+   ]
+  ]
+ },
+ {
+  "id": "a03",
+  "q": "What are good alternatives to Intercom for customer support?",
+  "cat": "Alternatives",
+  "runs": 5,
+  "named": [
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Crisp",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Gorgias",
+    5
+   ],
+   [
+    "Help Scout",
+    5
+   ],
+   [
+    "HubSpot",
+    5
+   ],
+   [
+    "Tidio",
+    5
+   ]
+  ],
+  "first": [
+   [
+    "Zendesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "chatbot.com",
+    5
+   ],
+   [
+    "ever-help.com",
+    5
+   ],
+   [
+    "helpscout.com",
+    5
+   ],
+   [
+    "zapier.com",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "a04",
+  "q": "What are the best alternatives to Salesforce Service Cloud?",
+  "cat": "Alternatives",
+  "runs": 5,
+  "named": [
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "HubSpot",
+    5
+   ],
+   [
+    "ServiceNow",
+    5
+   ],
+   [
+    "Sprinklr Service",
+    5
+   ],
+   [
+    "Zoho Desk",
+    5
+   ]
+  ],
+  "first": [
+   [
+    "Zendesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "eesel.ai",
+    5
+   ],
+   [
+    "g2.com",
+    5
+   ],
+   [
+    "leadsquared.com",
+    5
+   ],
+   [
+    "peerspot.com",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "a05",
+  "q": "What are good alternatives to Help Scout?",
+  "cat": "Alternatives",
+  "runs": 5,
+  "named": [
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "FreeScout",
+    5
+   ],
+   [
+    "Front",
+    5
+   ],
+   [
+    "Gorgias",
+    5
+   ],
+   [
+    "Hiver",
+    5
+   ],
+   [
+    "Intercom",
+    5
+   ],
+   [
+    "Zoho Desk",
+    5
+   ],
+   [
+    "Tidio",
+    2
+   ],
+   [
+    "Crisp",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Zendesk",
+    4
+   ],
+   [
+    "Freshdesk",
+    1
+   ]
+  ],
+  "sources": [
+   [
+    "emailmeter.com",
+    5
+   ],
+   [
+    "getmacha.com",
+    5
+   ],
+   [
+    "helpdocs.io",
+    5
+   ],
+   [
+    "ringly.io",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "a06",
+  "q": "What are the best alternatives to HubSpot Service Hub?",
+  "cat": "Alternatives",
+  "runs": 5,
+  "named": [
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Front",
+    5
+   ],
+   [
+    "Gorgias",
+    5
+   ],
+   [
+    "Help Scout",
+    5
+   ],
+   [
+    "Intercom",
+    5
+   ],
+   [
+    "Zoho Desk",
+    5
+   ],
+   [
+    "Kustomer",
+    3
+   ],
+   [
+    "LiveAgent",
+    1
+   ],
+   [
+    "Salesforce Service Cloud",
+    1
+   ],
+   [
+    "Tidio",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Zendesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "getmacha.com",
+    5
+   ],
+   [
+    "helpscout.com",
+    5
+   ],
+   [
+    "kustomer.com",
+    5
+   ],
+   [
+    "softr.io",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "a07",
+  "q": "What are good alternatives to Jira Service Management for customer-facing support?",
+  "cat": "Alternatives",
+  "runs": 5,
+  "named": [
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Intercom",
+    5
+   ],
+   [
+    "Zoho Desk",
+    5
+   ],
+   [
+    "Kustomer",
+    4
+   ],
+   [
+    "HubSpot",
+    2
+   ],
+   [
+    "Freshservice",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Zendesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "deskpro.com",
+    5
+   ],
+   [
+    "getmacha.com",
+    5
+   ],
+   [
+    "intercom.com",
+    5
+   ],
+   [
+    "kustomer.com",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "a08",
+  "q": "What should I use instead of a shared Gmail inbox for customer support?",
+  "cat": "Alternatives",
+  "runs": 5,
+  "named": [
+   [
+    "Help Scout",
+    5
+   ],
+   [
+    "Hiver",
+    5
+   ],
+   [
+    "Front",
+    3
+   ],
+   [
+    "Freshdesk",
+    2
+   ],
+   [
+    "Zendesk",
+    2
+   ]
+  ],
+  "first": [
+   [
+    "Help Scout",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "emailmeter.com",
+    5
+   ],
+   [
+    "getmailbird.com",
+    5
+   ],
+   [
+    "kayako.com",
+    5
+   ],
+   [
+    "featurebase.app",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "c01",
+  "q": "Zendesk vs Intercom: which is better for a SaaS company?",
+  "cat": "Comparisons",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "getmacha.com",
+    5
+   ],
+   [
+    "intercom.com",
+    5
+   ],
+   [
+    "ustechautomations.com",
+    5
+   ],
+   [
+    "wonderchat.io",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "c02",
+  "q": "Zendesk vs HubSpot Service Hub: which should a small business choose?",
+  "cat": "Comparisons",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "getmacha.com",
+    5
+   ],
+   [
+    "hubspot.com",
+    5
+   ],
+   [
+    "rework.com",
+    5
+   ],
+   [
+    "sonary.com",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "c03",
+  "q": "Help Scout vs Intercom: which is better for a small support team?",
+  "cat": "Comparisons",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "gurusup.com",
+    5
+   ],
+   [
+    "intercom.com",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "c04",
+  "q": "Gorgias vs Zendesk for a Shopify store?",
+  "cat": "Comparisons",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "getmacha.com",
+    5
+   ],
+   [
+    "zendesk.com",
+    4
+   ],
+   [
+    "gorgias.com",
+    3
+   ],
+   [
+    "letstalkshop.com",
+    3
+   ]
+  ]
+ },
+ {
+  "id": "c05",
+  "q": "Which is better for customer support, Salesforce Service Cloud or Zendesk?",
+  "cat": "Comparisons",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "axelerant.com",
+    5
+   ],
+   [
+    "kayako.com",
+    5
+   ],
+   [
+    "salesforce.com",
+    5
+   ],
+   [
+    "intercom.com",
+    3
+   ]
+  ]
+ },
+ {
+  "id": "c06",
+  "q": "How do the main helpdesk tools compare on price per agent?",
+  "cat": "Comparisons",
+  "runs": 5,
+  "named": [
+   [
+    "Zoho Desk",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Front",
+    5
+   ],
+   [
+    "Gorgias",
+    5
+   ],
+   [
+    "HubSpot",
+    5
+   ],
+   [
+    "Intercom",
+    5
+   ],
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Jira Service Management",
+    4
+   ],
+   [
+    "LiveAgent",
+    1
+   ]
+  ],
+  "first": [
+   [
+    "Zoho Desk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "getmacha.com",
+    5
+   ],
+   [
+    "intercom.com",
+    5
+   ],
+   [
+    "helpdesk.com",
+    1
+   ],
+   [
+    "zendesk.com",
+    1
+   ]
+  ]
+ },
+ {
+  "id": "p01",
+  "q": "How do I reduce first response time in customer support?",
+  "cat": "How-to",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "front.com",
+    5
+   ],
+   [
+    "helpscout.com",
+    5
+   ],
+   [
+    "kommunicate.io",
+    5
+   ],
+   [
+    "quo.com",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "p02",
+  "q": "How can a small team manage support tickets from email, chat and social media in one place?",
+  "cat": "How-to",
+  "runs": 5,
+  "named": [
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "HubSpot",
+    5
+   ],
+   [
+    "Zoho Desk",
+    5
+   ]
+  ],
+  "first": [
+   [
+    "Freshdesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "g2.com",
+    5
+   ],
+   [
+    "hubspot.com",
+    5
+   ],
+   [
+    "monday.com",
+    5
+   ],
+   [
+    "freshworks.com",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "p03",
+  "q": "How do I set up a self-service knowledge base for customers?",
+  "cat": "How-to",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "atlassian.com",
+    5
+   ],
+   [
+    "featurebase.app",
+    5
+   ],
+   [
+    "salesforce.com",
+    5
+   ],
+   [
+    "front.com",
+    3
+   ]
+  ]
+ },
+ {
+  "id": "p04",
+  "q": "How can I use AI to automatically answer common customer support questions?",
+  "cat": "How-to",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "botpress.com",
+    5
+   ],
+   [
+    "chatbase.co",
+    5
+   ],
+   [
+    "chatbot.com",
+    5
+   ],
+   [
+    "featurebase.app",
+    5
+   ]
+  ]
+ },
+ {
+  "id": "p05",
+  "q": "How do I track SLAs for customer support tickets?",
+  "cat": "How-to",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "hubspot.com",
+    5
+   ],
+   [
+    "ones.com",
+    5
+   ],
+   [
+    "hiverhq.com",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "p06",
+  "q": "How do I move from a shared inbox to a proper ticketing system?",
+  "cat": "How-to",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "apps365.com",
+    5
+   ],
+   [
+    "latchworkflow.com",
+    5
+   ],
+   [
+    "proprofsdesk.com",
+    4
+   ],
+   [
+    "usesonny.com",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "p07",
+  "q": "How can I measure customer satisfaction after support conversations?",
+  "cat": "How-to",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "kayako.com",
+    5
+   ],
+   [
+    "surveymonkey.com",
+    5
+   ],
+   [
+    "zendesk.com",
+    5
+   ],
+   [
+    "aircall.io",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "p08",
+  "q": "How do I add WhatsApp support for customers in India?",
+  "cat": "How-to",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "ozonetel.com",
+    5
+   ],
+   [
+    "zoko.io",
+    5
+   ],
+   [
+    "google.com",
+    4
+   ],
+   [
+    "whatsapp.com",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "p09",
+  "q": "How do I route support tickets to the right agent automatically?",
+  "cat": "How-to",
+  "runs": 5,
+  "named": [],
+  "first": [],
+  "sources": [
+   [
+    "alloysoftware.com",
+    5
+   ],
+   [
+    "kustomer.com",
+    5
+   ],
+   [
+    "stacksync.com",
+    5
+   ],
+   [
+    "zendesk.com",
+    4
+   ]
+  ]
+ },
+ {
+  "id": "p10",
+  "q": "What tools help a support team handle tickets in multiple languages?",
+  "cat": "How-to",
+  "runs": 5,
+  "named": [
+   [
+    "Zendesk",
+    5
+   ],
+   [
+    "Freshdesk",
+    5
+   ],
+   [
+    "Zoho Desk",
+    5
+   ]
+  ],
+  "first": [
+   [
+    "Zendesk",
+    5
+   ]
+  ],
+  "sources": [
+   [
+    "dhiwise.com",
+    5
+   ],
+   [
+    "helpshift.com",
+    5
+   ],
+   [
+    "translated.com",
+    5
+   ],
+   [
+    "usepylon.com",
+    5
+   ]
+  ]
+ }
+]
