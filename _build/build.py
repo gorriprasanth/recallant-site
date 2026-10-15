@@ -29,7 +29,9 @@ SITE = "https://recallant.com"
 EMAIL = "hello@recallant.com"
 LINKEDIN = "https://www.linkedin.com/in/prasanth-gorripati-44805b209/"
 UPDATED = "2026-10-15"
-QUOTE = f"mailto:{EMAIL}?subject=Plan%20enquiry"
+# Requests are delivered by FormSubmit (formsubmit.co): free, no account. The first submission
+# sends an activation email to EMAIL; nothing arrives until "Activate Form" in it is clicked.
+FORM_ACTION = f"https://formsubmit.co/{EMAIL}"
 ORG_ID = f"{SITE}/#org"
 PERSON_ID = f"{SITE}/about.html#prasanth"
 
@@ -464,13 +466,23 @@ def nav(current: str, tone: str) -> str:
 
 
 def cta_band(title: str = "See what AI says about you.",
-             lede: str = "Send your product name. You’ll get a one-page snapshot by email.") -> str:
+             lede: str = "Send your product name. You’ll get a one-page snapshot by email.",
+             interests: list[str] | None = None) -> str:
+    """The request form. `interests` adds a visible choice; links with data-interest preselect it."""
     checks = [
         "20 questions your buyers ask, run several times each",
         "Where you’re named, where you’re missing, and which pages AI cites",
         "Free, and no call needed",
     ]
     lis = "".join(f"<li>{icon('check')}<span>{c}</span></li>" for c in checks)
+    if interests:
+        opts = "".join(f"<option>{o}</option>" for o in ["A free snapshot", *interests])
+        interest = f"""<div class="field">
+          <label for="sf-interest">I’m interested in</label>
+          <select id="sf-interest" name="interest">{opts}</select>
+        </div>"""
+    else:
+        interest = '<input type="hidden" name="interest" value="A free snapshot">'
     return f"""<section class="band band--night" id="get-snapshot" aria-labelledby="cta-title">
   <div class="wrap cta">
     <div class="cta__copy">
@@ -480,25 +492,44 @@ def cta_band(title: str = "See what AI says about you.",
       <ul class="cta__list">{lis}</ul>
       <p><a class="arrow-link" href="sample-snapshot.html">See a sample snapshot {icon('arrow')}</a></p>
     </div>
-    <form class="snap-form" data-snapshot-form action="mailto:{EMAIL}" method="get" novalidate>
-      <h3>Request your snapshot</h3>
-      <input type="hidden" name="subject" value="Free AI visibility snapshot">
-      <div class="field">
-        <label for="sf-product">Product or company</label>
-        <input id="sf-product" name="product" autocomplete="organization" required placeholder="e.g. Acme Helpdesk" aria-describedby="sf-product-error">
-        <p class="field__error" id="sf-product-error" hidden>Add your product or company name.</p>
+    <form class="snap-form" data-snapshot-form action="{FORM_ACTION}" method="post">
+      <div class="snap-form__fields">
+        <h3>Request your snapshot</h3>
+        <input type="hidden" name="_subject" value="Snapshot request from recallant.com">
+        <input type="hidden" name="_template" value="table">
+        <div class="snap-form__hp" aria-hidden="true">
+          <label for="sf-hp">Leave this field empty</label>
+          <input id="sf-hp" name="_honey" tabindex="-1" autocomplete="off">
+        </div>
+        {interest}
+        <div class="field">
+          <label for="sf-email">Work email</label>
+          <input id="sf-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com" aria-describedby="sf-email-error">
+          <p class="field__error" id="sf-email-error" hidden>Add an email address we can reply to.</p>
+        </div>
+        <div class="field">
+          <label for="sf-product">Product or company</label>
+          <input id="sf-product" name="product" autocomplete="organization" required placeholder="e.g. Acme Helpdesk" aria-describedby="sf-product-error">
+          <p class="field__error" id="sf-product-error" hidden>Add your product or company name.</p>
+        </div>
+        <div class="field">
+          <label for="sf-site">Website <span>(optional)</span></label>
+          <input id="sf-site" name="website" autocomplete="url" inputmode="url" placeholder="acme.com">
+        </div>
+        <div class="field">
+          <label for="sf-rivals">Competitors to compare <span>(optional)</span></label>
+          <input id="sf-rivals" name="competitors" placeholder="Up to three">
+        </div>
+        <button class="btn btn--signal" type="submit">{icon('mail')}<span>Send my request</span></button>
+        <p class="snap-form__note">We’ll reply to the email address you give here.</p>
+        <p class="snap-form__status" role="status" aria-live="polite"></p>
       </div>
-      <div class="field">
-        <label for="sf-site">Website <span>(optional)</span></label>
-        <input id="sf-site" name="website" autocomplete="url" inputmode="url" placeholder="acme.com">
+      <div class="snap-form__done" tabindex="-1" hidden>
+        <span class="snap-form__tick">{icon('check')}</span>
+        <h3>Request sent.</h3>
+        <p>Thanks. We’ll reply to <b data-sent-to></b>.</p>
+        <button class="text-btn" type="button" data-form-reset>Send another request</button>
       </div>
-      <div class="field">
-        <label for="sf-rivals">Competitors to compare <span>(optional)</span></label>
-        <input id="sf-rivals" name="competitors" placeholder="Up to three">
-      </div>
-      <button class="btn btn--signal" type="submit">{icon('mail')}Email my request</button>
-      <p class="snap-form__note">This opens your email app with the details filled in. Nothing is sent until you press send.</p>
-      <p class="snap-form__status" role="status" aria-live="polite"></p>
       <div class="snap-form__alt">
         <span>Or email <b data-copy-text>{EMAIL}</b></span>
         <button class="copy-btn" type="button" data-copy="{EMAIL}">{icon('copy')}<span>Copy</span></button>
@@ -1113,7 +1144,7 @@ def plans() -> None:
         <p class="plan__for">{for_text}</p>
         <div class="plan__price"><strong>Pricing on request</strong><span>Billed monthly · quoted after your free snapshot</span></div>
         <ul class="checks">{lis}</ul>
-        <a class="btn {'btn--signal' if featured else 'btn--quiet'}" href="{QUOTE}%3A%20{name}">Ask about {name}</a>
+        <a class="btn {'btn--signal' if featured else 'btn--quiet'}" href="#get-snapshot" data-interest="{name} plan">Ask about {name}</a>
       </article>""")
 
     yes = f'{icon("check")}<span class="sr-only">Included</span>'
@@ -1175,13 +1206,13 @@ def plans() -> None:
         <p class="tile__eyebrow">Project</p>
         <h3>Website build</h3>
         <p>A new marketing site, designed and built to be clear for buyers and readable by AI. Add monthly care afterwards, or move to the Brand plan.</p>
-        <a class="arrow-link" href="{QUOTE}%3A%20Website%20build">Ask about a website {icon('arrow')}</a>
+        <a class="arrow-link" href="#get-snapshot" data-interest="Website build">Ask about a website {icon('arrow')}</a>
       </article>
       <article class="extra reveal" style="--d:80">
         <p class="tile__eyebrow">One-off</p>
         <h3>AI visibility audit</h3>
         <p>A full question set across your category, competitor share of voice, and the pages and sources to fix first. No subscription needed.</p>
-        <a class="arrow-link" href="{QUOTE}%3A%20Audit">Ask about an audit {icon('arrow')}</a>
+        <a class="arrow-link" href="#get-snapshot" data-interest="AI visibility audit">Ask about an audit {icon('arrow')}</a>
       </article>
     </div>
   </div>
@@ -1199,7 +1230,8 @@ def plans() -> None:
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"<[^>]+>", "", a)}}
         for q, a in FAQ]}
     cta_band_for["plans.html"] = cta_band("Start with the snapshot.",
-                                          "Every plan starts with a free one-page snapshot. We quote after it.")
+                                          "Every plan starts with a free one-page snapshot. We quote after it.",
+                                          interests=[f"{p[0]} plan" for p in PLANS] + ["Website build", "AI visibility audit"])
     page(file="plans.html", title="Plans: monthly AI visibility subscriptions | Recallant",
          desc="Monthly plans for AI search visibility: Visibility, Growth and Brand, plus website builds and one-off audits. Every plan starts with a free snapshot.",
          body=body, current="plans.html", graph=[ORG, breadcrumbs([("Plans", SITE + "/plans.html")]), faq_ld])
@@ -1250,7 +1282,7 @@ def research() -> None:
         <p class="kicker">October 2026 · IT management software</p>
         <h3>ITSM and MSP tools in AI answers</h3>
         <p>44 ITSM and MSP buyer questions, 220 Perplexity answers. One MSP tool was named in over a third of answers but recommended first in only 1 of 70.</p>
-        <a class="arrow-link" href="mailto:{EMAIL}?subject=IT%20management%20study">Request the study {icon('arrow')}</a>
+        <a class="arrow-link" href="#get-snapshot" data-interest="IT management study">Request the study {icon('arrow')}</a>
       </article>
     </div>
   </div>
@@ -1267,7 +1299,8 @@ def research() -> None:
   </div>
 </section>"""
     cta_band_for["research.html"] = cta_band("Want your category measured?",
-                                             "Start with a free one-page snapshot on 20 questions your buyers ask.")
+                                             "Start with a free one-page snapshot on 20 questions your buyers ask.",
+                                             interests=["IT management study"])
     page(file="research.html", title="Research: AI visibility studies | Recallant",
          desc="Recallant’s published studies of what AI assistants recommend in B2B software categories, with method and limits.",
          body=body, current="research.html", graph=[ORG, breadcrumbs([("Research", SITE + "/research.html")])])
