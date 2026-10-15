@@ -278,37 +278,130 @@
 
   /* ---------------------------------------------------------------- snapshot request form */
 
+  /* Sent through FormSubmit's AJAX endpoint. Without JavaScript the form posts to FormSubmit directly. */
   var EMAIL = "hello@recallant.com";
+  var ENDPOINT = "https://formsubmit.co/ajax/" + EMAIL;
+  var DEFAULT_INTEREST = "A free snapshot";
+
   $$("[data-snapshot-form]").forEach(function (form) {
+    var fields = $(".snap-form__fields", form);
+    var done = $(".snap-form__done", form);
     var status = $(".snap-form__status", form);
-    var product = form.elements.product;
-    var err = document.getElementById(product.getAttribute("aria-describedby"));
+    var button = $('button[type="submit"]', form);
+    var label = $("span", button);
+    var required = [form.elements.email, form.elements.product];
+    var sending = false;
+    form.noValidate = true;
+
+    function value(name) {
+      var el = form.elements[name];
+      return el ? el.value.trim() : "";
+    }
+    function check(input) {
+      var ok = input.value.trim() !== "" && input.checkValidity();
+      var err = document.getElementById(input.getAttribute("aria-describedby"));
+      if (ok) input.removeAttribute("aria-invalid"); else input.setAttribute("aria-invalid", "true");
+      if (err) err.hidden = ok;
+      return ok;
+    }
+    function subject() {
+      var interest = value("interest") || DEFAULT_INTEREST;
+      return (interest === DEFAULT_INTEREST ? "Snapshot request" : interest + " enquiry") + ": " + value("product");
+    }
+    function mailto() {
+      var body = "Hi Recallant,\n\n" +
+        "I'm interested in: " + (value("interest") || DEFAULT_INTEREST) + "\n" +
+        "Product or company: " + value("product") + "\n" +
+        "Website: " + (value("website") || "-") + "\n" +
+        "Competitors to compare: " + (value("competitors") || "-") + "\n";
+      return "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject()) + "&body=" + encodeURIComponent(body);
+    }
+    function setSending(on) {
+      sending = on;
+      button.disabled = on;
+      form.setAttribute("aria-busy", on ? "true" : "false");
+      if (label) label.textContent = on ? "Sending…" : "Send my request";
+    }
+    function fail() {
+      setSending(false);
+      status.classList.add("is-error");
+      status.innerHTML = "That didn’t go through. Try again, or email us at " + EMAIL + ". " +
+        '<a class="text-link" href="' + esc(mailto()) + '">Open it in your email app</a>';
+    }
+    function succeed(email) {
+      setSending(false);
+      $("[data-sent-to]", form).textContent = email;
+      fields.hidden = true;
+      done.hidden = false;
+      done.focus();
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var name = product.value.trim();
-      if (!name) {
-        product.setAttribute("aria-invalid", "true");
-        if (err) err.hidden = false;
-        product.focus();
+      if (sending) return;
+      var invalid = required.filter(function (input) { return !check(input); });
+      if (invalid.length) {
+        invalid[0].focus();
         return;
       }
-      product.removeAttribute("aria-invalid");
-      if (err) err.hidden = true;
-      var site = form.elements.website.value.trim();
-      var rivals = form.elements.competitors.value.trim();
-      var body = "Hi Recallant,\n\nPlease send me a free AI visibility snapshot.\n\n" +
-        "Product or company: " + name + "\n" +
-        "Website: " + (site || "-") + "\n" +
-        "Competitors to compare: " + (rivals || "-") + "\n";
-      var href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Free AI visibility snapshot: " + name) +
-        "&body=" + encodeURIComponent(body);
-      window.location.href = href;
-      if (status) {
-        status.textContent = "Your email app should open with the request filled in. If it didn't, email " + EMAIL + " with your product name.";
-      }
+      status.classList.remove("is-error");
+      status.textContent = "";
+      var email = value("email");
+      if (value("_honey")) { succeed(email); return; }  // only bots fill the hidden field
+      if (!window.fetch || !window.JSON) { form.submit(); return; }
+
+      setSending(true);
+      var ctrl = window.AbortController ? new AbortController() : null;
+      var timer = window.setTimeout(function () { if (ctrl) ctrl.abort(); }, 20000);
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          email: email,
+          _replyto: email,
+          interest: value("interest") || DEFAULT_INTEREST,
+          product: value("product"),
+          website: value("website") || "-",
+          competitors: value("competitors") || "-",
+          page: window.location.pathname,
+          _subject: subject(),
+          _template: "table"
+        }),
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) {
+          window.clearTimeout(timer);
+          if (res.ok && (data.success === true || data.success === "true")) succeed(email);
+          else fail();
+        });
+      }).catch(function () {
+        window.clearTimeout(timer);
+        fail();
+      });
     });
-    product.addEventListener("input", function () {
-      if (product.value.trim()) { product.removeAttribute("aria-invalid"); if (err) err.hidden = true; }
+
+    required.forEach(function (input) {
+      input.addEventListener("input", function () {
+        if (input.getAttribute("aria-invalid")) check(input);
+      });
+    });
+
+    var again = $("[data-form-reset]", form);
+    if (again) {
+      again.addEventListener("click", function () {
+        form.reset();
+        done.hidden = true;
+        fields.hidden = false;
+        form.elements.email.focus();
+      });
+    }
+  });
+
+  /* Plan and study links point at the form; preselect what the visitor asked about. */
+  $$("[data-interest]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      var select = document.getElementById("sf-interest");
+      if (select) select.value = link.getAttribute("data-interest");
     });
   });
 

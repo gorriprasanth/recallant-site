@@ -23,9 +23,9 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=3045b258bc">
+<link rel="stylesheet" href="assets/css/site.css?v=42e27ecb5a">
 <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
-<script src="assets/js/site.js?v=3045b258bc" defer></script>
+<script src="assets/js/site.js?v=42e27ecb5a" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -136,7 +136,7 @@
         <p class="kicker">October 2026 · IT management software</p>
         <h3>ITSM and MSP tools in AI answers</h3>
         <p>44 ITSM and MSP buyer questions, 220 Perplexity answers. One MSP tool was named in over a third of answers but recommended first in only 1 of 70.</p>
-        <a class="arrow-link" href="mailto:hello@recallant.com?subject=IT%20management%20study">Request the study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="arrow-link" href="#get-snapshot" data-interest="IT management study">Request the study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
     </div>
   </div>
@@ -161,25 +161,47 @@
       <ul class="cta__list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>20 questions your buyers ask, run several times each</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Where you’re named, where you’re missing, and which pages AI cites</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Free, and no call needed</span></li></ul>
       <p><a class="arrow-link" href="sample-snapshot.html">See a sample snapshot <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
     </div>
-    <form class="snap-form" data-snapshot-form action="mailto:hello@recallant.com" method="get" novalidate>
-      <h3>Request your snapshot</h3>
-      <input type="hidden" name="subject" value="Free AI visibility snapshot">
-      <div class="field">
-        <label for="sf-product">Product or company</label>
-        <input id="sf-product" name="product" autocomplete="organization" required placeholder="e.g. Acme Helpdesk" aria-describedby="sf-product-error">
-        <p class="field__error" id="sf-product-error" hidden>Add your product or company name.</p>
+    <form class="snap-form" data-snapshot-form action="https://formsubmit.co/hello@recallant.com" method="post">
+      <div class="snap-form__fields">
+        <h3>Request your snapshot</h3>
+        <input type="hidden" name="_subject" value="Snapshot request from recallant.com">
+        <input type="hidden" name="_template" value="table">
+        <div class="snap-form__hp" aria-hidden="true">
+          <label for="sf-hp">Leave this field empty</label>
+          <input id="sf-hp" name="_honey" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="sf-interest">I’m interested in</label>
+          <select id="sf-interest" name="interest"><option>A free snapshot</option><option>IT management study</option></select>
+        </div>
+        <div class="field">
+          <label for="sf-email">Work email</label>
+          <input id="sf-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com" aria-describedby="sf-email-error">
+          <p class="field__error" id="sf-email-error" hidden>Add an email address we can reply to.</p>
+        </div>
+        <div class="field">
+          <label for="sf-product">Product or company</label>
+          <input id="sf-product" name="product" autocomplete="organization" required placeholder="e.g. Acme Helpdesk" aria-describedby="sf-product-error">
+          <p class="field__error" id="sf-product-error" hidden>Add your product or company name.</p>
+        </div>
+        <div class="field">
+          <label for="sf-site">Website <span>(optional)</span></label>
+          <input id="sf-site" name="website" autocomplete="url" inputmode="url" placeholder="acme.com">
+        </div>
+        <div class="field">
+          <label for="sf-rivals">Competitors to compare <span>(optional)</span></label>
+          <input id="sf-rivals" name="competitors" placeholder="Up to three">
+        </div>
+        <button class="btn btn--signal" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7.5l8 5.5 8-5.5"/></svg><span>Send my request</span></button>
+        <p class="snap-form__note">We’ll reply to the email address you give here.</p>
+        <p class="snap-form__status" role="status" aria-live="polite"></p>
       </div>
-      <div class="field">
-        <label for="sf-site">Website <span>(optional)</span></label>
-        <input id="sf-site" name="website" autocomplete="url" inputmode="url" placeholder="acme.com">
+      <div class="snap-form__done" tabindex="-1" hidden>
+        <span class="snap-form__tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>
+        <h3>Request sent.</h3>
+        <p>Thanks. We’ll reply to <b data-sent-to></b>.</p>
+        <button class="text-btn" type="button" data-form-reset>Send another request</button>
       </div>
-      <div class="field">
-        <label for="sf-rivals">Competitors to compare <span>(optional)</span></label>
-        <input id="sf-rivals" name="competitors" placeholder="Up to three">
-      </div>
-      <button class="btn btn--signal" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7.5l8 5.5 8-5.5"/></svg>Email my request</button>
-      <p class="snap-form__note">This opens your email app with the details filled in. Nothing is sent until you press send.</p>
-      <p class="snap-form__status" role="status" aria-live="polite"></p>
       <div class="snap-form__alt">
         <span>Or email <b data-copy-text>hello@recallant.com</b></span>
         <button class="copy-btn" type="button" data-copy="hello@recallant.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8"/></svg><span>Copy</span></button>

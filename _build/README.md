@@ -20,6 +20,16 @@ This regenerates every `.html` page, `sitemap.xml`, `robots.txt`, `llms.txt` and
   study run in the project workspace (the raw answers are not in this repository).
 - Every number on the site comes from the October 2026 helpdesk study. Don't add figures without a source.
 
+## Request form
+
+The snapshot form is sent by [FormSubmit](https://formsubmit.co/) (free, no account) to `hello@recallant.com`:
+`assets/js/site.js` posts JSON to `https://formsubmit.co/ajax/hello@recallant.com`, and without
+JavaScript the form posts to `https://formsubmit.co/hello@recallant.com` directly. The first submission
+to a new address triggers an activation email; click "Activate Form" in it once. FormSubmit keeps
+submissions for 30 days. To change the address, update `EMAIL` in both `_build/build.py` and
+`assets/js/site.js`, rebuild, and activate again. Plan and study links preselect the form's
+"I'm interested in" choice through their `data-interest` attribute.
+
 ## Social images and icons (optional, needs Node and Playwright)
 
 ```
