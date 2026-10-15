@@ -22,13 +22,13 @@ This regenerates every `.html` page, `sitemap.xml`, `robots.txt`, `llms.txt` and
 
 ## Request form
 
-The snapshot form is sent by [FormSubmit](https://formsubmit.co/) (free, no account) to `hello@recallant.com`:
-`assets/js/site.js` posts JSON to `https://formsubmit.co/ajax/hello@recallant.com`, and without
-JavaScript the form posts to `https://formsubmit.co/hello@recallant.com` directly. The first submission
-to a new address triggers an activation email; click "Activate Form" in it once. FormSubmit keeps
-submissions for 30 days. To change the address, update `EMAIL` in both `_build/build.py` and
-`assets/js/site.js`, rebuild, and activate again. Plan and study links preselect the form's
-"I'm interested in" choice through their `data-interest` attribute.
+The snapshot form is sent by [Formspree](https://formspree.io/) (free plan) to `hello@recallant.com`.
+Its endpoint is `FORM_ACTION` in `_build/build.py`, written into the form's `action`. `assets/js/site.js`
+posts JSON to that same address and shows a sent or error state; without JavaScript the form posts there
+directly. Submissions also appear in the Formspree dashboard. The hidden `_gotcha` field is Formspree's
+honeypot. To change where requests go, change the form's email in Formspree, not the site. Plan and study
+links preselect the form's "I'm interested in" choice through their `data-interest` attribute.
+(FormSubmit was used briefly in October 2026 and dropped after its activation link failed.)
 
 ## Social images and icons (optional, needs Node and Playwright)
 

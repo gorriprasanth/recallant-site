@@ -29,9 +29,9 @@ SITE = "https://recallant.com"
 EMAIL = "hello@recallant.com"
 LINKEDIN = "https://www.linkedin.com/in/prasanth-gorripati-44805b209/"
 UPDATED = "2026-10-15"
-# Requests are delivered by FormSubmit (formsubmit.co): free, no account. The first submission
-# sends an activation email to EMAIL; nothing arrives until "Activate Form" in it is clicked.
-FORM_ACTION = f"https://formsubmit.co/{EMAIL}"
+# Requests are delivered by Formspree (formspree.io): this form's endpoint, set up in the
+# Formspree account for hello@recallant.com. The script posts JSON to the same address.
+FORM_ACTION = "https://formspree.io/f/testform"
 ORG_ID = f"{SITE}/#org"
 PERSON_ID = f"{SITE}/about.html#prasanth"
 
@@ -496,10 +496,9 @@ def cta_band(title: str = "See what AI says about you.",
       <div class="snap-form__fields">
         <h3>Request your snapshot</h3>
         <input type="hidden" name="_subject" value="Snapshot request from recallant.com">
-        <input type="hidden" name="_template" value="table">
         <div class="snap-form__hp" aria-hidden="true">
           <label for="sf-hp">Leave this field empty</label>
-          <input id="sf-hp" name="_honey" tabindex="-1" autocomplete="off">
+          <input id="sf-hp" name="_gotcha" tabindex="-1" autocomplete="off">
         </div>
         {interest}
         <div class="field">
