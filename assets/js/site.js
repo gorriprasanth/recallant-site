@@ -278,12 +278,12 @@
 
   /* ---------------------------------------------------------------- snapshot request form */
 
-  /* Sent through FormSubmit's AJAX endpoint. Without JavaScript the form posts to FormSubmit directly. */
+  /* Sent as JSON to the form's Formspree endpoint (its action). Without JavaScript the form posts there directly. */
   var EMAIL = "hello@recallant.com";
-  var ENDPOINT = "https://formsubmit.co/ajax/" + EMAIL;
   var DEFAULT_INTEREST = "A free snapshot";
 
   $$("[data-snapshot-form]").forEach(function (form) {
+    var endpoint = form.getAttribute("action");
     var fields = $(".snap-form__fields", form);
     var done = $(".snap-form__done", form);
     var status = $(".snap-form__status", form);
@@ -347,13 +347,13 @@
       status.classList.remove("is-error");
       status.textContent = "";
       var email = value("email");
-      if (value("_honey")) { succeed(email); return; }  // only bots fill the hidden field
+      if (value("_gotcha")) { succeed(email); return; }  // only bots fill the hidden field
       if (!window.fetch || !window.JSON) { form.submit(); return; }
 
       setSending(true);
       var ctrl = window.AbortController ? new AbortController() : null;
       var timer = window.setTimeout(function () { if (ctrl) ctrl.abort(); }, 20000);
-      fetch(ENDPOINT, {
+      fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify({
@@ -364,14 +364,14 @@
           website: value("website") || "-",
           competitors: value("competitors") || "-",
           page: window.location.pathname,
-          _subject: subject(),
-          _template: "table"
+          _subject: subject()
         }),
         signal: ctrl ? ctrl.signal : undefined
       }).then(function (res) {
         return res.json().catch(function () { return {}; }).then(function (data) {
           window.clearTimeout(timer);
-          if (res.ok && (data.success === true || data.success === "true")) succeed(email);
+          // Formspree answers 200 {"ok": true} when it accepts a submission, and 4xx with "errors" when not
+          if (res.ok && data.ok !== false && !data.error && !data.errors) succeed(email);
           else fail();
         });
       }).catch(function () {
