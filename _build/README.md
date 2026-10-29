@@ -30,6 +30,8 @@ collects no enquiry fields or API keys. Backup: gorripatiprasanth@gmail.com.
 The existing hello@recallant.com forwarding address remains in the footer; no DNS/mail records changed.
 Formspree is no longer referenced by the site; its account and historical submissions were not deleted.
 
+Four bounded UTM labels can follow same-site page links and the four approved shared enquiry URLs while JavaScript is available. The shared form displays them as optional editable enquiry fields. No cookies, browser storage, full referrer collection or analytics service is added. Without JavaScript, ordinary page navigation cannot preserve these labels. `_build/check_campaign.cjs` checks the real Home → Services → Contact journey, approved destinations and malformed-query exclusions; CI runs it after the site build.
+
 ## Source and evidence
 
 `studio_pages.py` authors the homepage and About; `offer_pages.py` authors Services, Plans,

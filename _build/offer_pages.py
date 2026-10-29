@@ -197,6 +197,7 @@ def privacy(b):
     body += f'''<section class="band band--paper" aria-labelledby="privacy-title">
   <div class="wrap text-page">
     <h2 class="h2" id="privacy-title">Browsing recallant.com</h2>
+    <p>Shared links can carry four short labels for their source, link type, campaign and content reference. With JavaScript available, valid labels follow page links on this website and the four Recallant enquiry choices into the shared studio form. We do not save them in cookies or browser storage, collect a full referring URL or add visitor analytics. The form shows the labels so you can clear them before reviewing and sending your enquiry.</p>
     <p>This is a static website hosted through GitHub Pages. We have not added analytics, advertising trackers or a local enquiry form to this version. The research explorer works in your browser with the published study data; choosing a question does not send us your contact details.</p>
     <p>The hosting provider may process technical request information, such as IP address, browser details and access logs, to serve and protect the website. Its handling is described in <a class="text-link" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>.</p>
     <h3>Using the shared enquiry desk</h3>

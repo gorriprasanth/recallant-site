@@ -33,6 +33,8 @@ jobs:
         run: python _build/build.py
       - name: Check pages, enquiry routes and unchanged study data
         run: python _build/check_site.py
+      - name: Check campaign labels stay on approved enquiry routes
+        run: node _build/check_campaign.cjs
       - name: Verify generated output is committed and reproducible
         shell: bash
         run: |

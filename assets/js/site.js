@@ -15,6 +15,43 @@
     });
   }
 
+  /* ---------------------------------------------------------------- campaign context (no storage or analytics) */
+
+  function carryCampaignContext() {
+    var current;
+    try { current = new URL(window.location.href); } catch (e) { return; }
+    var campaign = {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content"].forEach(function (key) {
+      var values = current.searchParams.getAll(key);
+      if (values.length === 1 && /^[a-z0-9_-]{1,64}$/.test(values[0])) campaign[key] = values[0];
+    });
+    var keys = Object.keys(campaign);
+    if (!keys.length) return;
+    $$("a[href]").forEach(function (link) {
+      var href = (link.getAttribute("href") || "").trim();
+      if (!href || href.charAt(0) === "#" || link.hasAttribute("download")) return;
+      var target;
+      try { target = new URL(href, current.href); } catch (e) { return; }
+      if (!/^https?:$/.test(target.protocol) || target.username || target.password) return;
+      var pagePath = !/\.[^/]+$/.test(target.pathname) || /\.html$/i.test(target.pathname);
+      var localPage = target.origin === current.origin && pagePath;
+      var sharedEnquiry = target.origin === "https://signalandsyllable.com" && target.pathname === "/contact"
+        && target.searchParams.getAll("service").length === 1 && target.searchParams.get("service") === "Recallant"
+        && target.searchParams.getAll("request").length === 1
+        && ["recallant-snapshot", "recallant-pilot", "recallant-audit", "recallant-monitoring"].indexOf(target.searchParams.get("request")) !== -1;
+      if (!localPage && !sharedEnquiry) return;
+      var changed = false;
+      keys.forEach(function (key) {
+        if (!target.searchParams.has(key)) {
+          target.searchParams.set(key, campaign[key]);
+          changed = true;
+        }
+      });
+      if (changed) link.setAttribute("href", target.href);
+    });
+  }
+  carryCampaignContext();
+
   /* ---------------------------------------------------------------- navigation tone and state */
 
   var nav = $("#nav");
