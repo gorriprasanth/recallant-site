@@ -3,6 +3,8 @@
   "use strict";
 
   var doc = document.documentElement;
+  doc.classList.remove("no-js");
+  doc.classList.add("js");
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function $(sel, root) { return (root || document).querySelector(sel); }
@@ -179,7 +181,7 @@
       var leaders = first.filter(function (f) { return f[1] === top; }).map(function (f) { return f[0]; });
       var rest = first.filter(function (f) { return f[1] !== top; });
       var name = leaders.length === 1 ? leaders[0] : leaders.slice(0, -1).join(", ") + " and " + leaders[leaders.length - 1];
-      var label = leaders.length === 1 ? "Recommended first" : "Recommended first, split";
+      var label = leaders.length === 1 ? "First named" : "First named, split";
       var meta = top + " of " + n + " runs" + (leaders.length > 1 ? " each" : "");
       out.push('<div class="explorer__first"><div><p class="kicker">' + label + "</p><strong>" + esc(name) +
         '</strong></div><div class="explorer__firstmeta">' + pips(top, n) + "<span>" + meta + "</span></div></div>");
@@ -190,8 +192,8 @@
       }
     } else {
       var msg = item.cat === "Comparisons" && !named.length ? "Only the two brands in the question were named"
-        : !named.length ? "No helpdesk product was named in any answer" : "No single brand was recommended first";
-      out.push('<div class="explorer__first is-none"><div><p class="kicker">Recommended first</p><strong>' + msg +
+        : !named.length ? "No helpdesk product was named in any answer" : "No single brand was named first";
+      out.push('<div class="explorer__first is-none"><div><p class="kicker">First named</p><strong>' + msg +
         "</strong></div></div>");
     }
     var emptyNamed = item.cat === "Comparisons" ? "None besides the two in the question" : "None";
@@ -274,135 +276,6 @@
     window.addEventListener("scroll", queue, { passive: true });
     window.addEventListener("resize", queue);
     update();
-  });
-
-  /* ---------------------------------------------------------------- snapshot request form */
-
-  /* Sent as JSON to the form's Formspree endpoint (its action). Without JavaScript the form posts there directly. */
-  var EMAIL = "hello@recallant.com";
-  var DEFAULT_INTEREST = "A free snapshot";
-
-  $$("[data-snapshot-form]").forEach(function (form) {
-    var endpoint = form.getAttribute("action");
-    var fields = $(".snap-form__fields", form);
-    var done = $(".snap-form__done", form);
-    var status = $(".snap-form__status", form);
-    var button = $('button[type="submit"]', form);
-    var label = $("span", button);
-    var required = [form.elements.email, form.elements.product];
-    var sending = false;
-    form.noValidate = true;
-
-    function value(name) {
-      var el = form.elements[name];
-      return el ? el.value.trim() : "";
-    }
-    function check(input) {
-      var ok = input.value.trim() !== "" && input.checkValidity();
-      var err = document.getElementById(input.getAttribute("aria-describedby"));
-      if (ok) input.removeAttribute("aria-invalid"); else input.setAttribute("aria-invalid", "true");
-      if (err) err.hidden = ok;
-      return ok;
-    }
-    function subject() {
-      var interest = value("interest") || DEFAULT_INTEREST;
-      return (interest === DEFAULT_INTEREST ? "Snapshot request" : interest + " enquiry") + ": " + value("product");
-    }
-    function mailto() {
-      var body = "Hi Recallant,\n\n" +
-        "I'm interested in: " + (value("interest") || DEFAULT_INTEREST) + "\n" +
-        "Product or company: " + value("product") + "\n" +
-        "Website: " + (value("website") || "-") + "\n" +
-        "Competitors to compare: " + (value("competitors") || "-") + "\n";
-      return "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject()) + "&body=" + encodeURIComponent(body);
-    }
-    function setSending(on) {
-      sending = on;
-      button.disabled = on;
-      form.setAttribute("aria-busy", on ? "true" : "false");
-      if (label) label.textContent = on ? "Sending…" : "Send my request";
-    }
-    function fail() {
-      setSending(false);
-      status.classList.add("is-error");
-      status.innerHTML = "That didn’t go through. Try again, or email us at " + EMAIL + ". " +
-        '<a class="text-link" href="' + esc(mailto()) + '">Open it in your email app</a>';
-    }
-    function succeed(email) {
-      setSending(false);
-      $("[data-sent-to]", form).textContent = email;
-      fields.hidden = true;
-      done.hidden = false;
-      done.focus();
-    }
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (sending) return;
-      var invalid = required.filter(function (input) { return !check(input); });
-      if (invalid.length) {
-        invalid[0].focus();
-        return;
-      }
-      status.classList.remove("is-error");
-      status.textContent = "";
-      var email = value("email");
-      if (value("_gotcha")) { succeed(email); return; }  // only bots fill the hidden field
-      if (!window.fetch || !window.JSON) { form.submit(); return; }
-
-      setSending(true);
-      var ctrl = window.AbortController ? new AbortController() : null;
-      var timer = window.setTimeout(function () { if (ctrl) ctrl.abort(); }, 20000);
-      fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({
-          email: email,
-          _replyto: email,
-          interest: value("interest") || DEFAULT_INTEREST,
-          product: value("product"),
-          website: value("website") || "-",
-          competitors: value("competitors") || "-",
-          page: window.location.pathname,
-          _subject: subject()
-        }),
-        signal: ctrl ? ctrl.signal : undefined
-      }).then(function (res) {
-        return res.json().catch(function () { return {}; }).then(function (data) {
-          window.clearTimeout(timer);
-          // Formspree answers 200 {"ok": true} when it accepts a submission, and 4xx with "errors" when not
-          if (res.ok && data.ok !== false && !data.error && !data.errors) succeed(email);
-          else fail();
-        });
-      }).catch(function () {
-        window.clearTimeout(timer);
-        fail();
-      });
-    });
-
-    required.forEach(function (input) {
-      input.addEventListener("input", function () {
-        if (input.getAttribute("aria-invalid")) check(input);
-      });
-    });
-
-    var again = $("[data-form-reset]", form);
-    if (again) {
-      again.addEventListener("click", function () {
-        form.reset();
-        done.hidden = true;
-        fields.hidden = false;
-        form.elements.email.focus();
-      });
-    }
-  });
-
-  /* Plan and study links point at the form; preselect what the visitor asked about. */
-  $$("[data-interest]").forEach(function (link) {
-    link.addEventListener("click", function () {
-      var select = document.getElementById("sf-interest");
-      if (select) select.value = link.getAttribute("data-interest");
-    });
   });
 
   /* ---------------------------------------------------------------- copy buttons */

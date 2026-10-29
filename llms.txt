@@ -1,14 +1,13 @@
 # Recallant
 
-> Recallant measures what AI assistants (ChatGPT, Gemini, Perplexity) say about B2B brands when buyers ask for recommendations, and improves the content, PR, website and listings those answers rely on. Based in Bengaluru, India. Founder: Prasanth G. Contact: hello@recallant.com.
+> AI search visibility research and focused website improvements for B2B software brands. A specialist product from Signal & Syllable. Bengaluru, India. Contact: hello@recallant.com.
 
-## Services
-- [Services](https://recallant.com/services.html): AI visibility consulting, articles and reports, PR management, website creation and care, brand management.
-- [Plans](https://recallant.com/plans.html): monthly plans (Visibility, Growth, Brand), website builds and one-off audits. Pricing on request after a free snapshot.
-
-## Research
-- [Helpdesk AI visibility study, October 2026](https://recallant.com/helpdesk-study.html): 44 buyer questions, 5 runs each, 220 Perplexity answers, with method and limits, and a question-by-question explorer.
-- [Sample snapshot](https://recallant.com/sample-snapshot.html): what the free one-page snapshot looks like, using Freshdesk's numbers from the helpdesk study.
-
-## About
+- [Services](https://recallant.com/services.html): agreed measurement, evidence-led improvements and follow-up.
+- [Plans](https://recallant.com/plans.html): snapshot request, INR 14,400 pre-tax Visibility & Enquiry Pilot, scoped audit and ongoing support.
+- [Method](https://recallant.com/method.html): mention rate, share of voice, citations and first-named order proxy; these do not measure revenue or verified preference.
+- [Research](https://recallant.com/research.html): published study and sample.
+- [Helpdesk study](https://recallant.com/helpdesk-study.html): 44 questions, 220 saved Perplexity answers collected 6 October 2026. Historical evidence, not current live search.
+- [Sample](https://recallant.com/sample-snapshot.html): Freshdesk example, not a client result.
+- [Contact](https://recallant.com/contact.html): choose a request and continue to the shared Signal & Syllable review-and-send form.
+- [Privacy](https://recallant.com/privacy.html)
 - [About](https://recallant.com/about.html)

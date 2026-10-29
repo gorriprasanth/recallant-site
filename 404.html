@@ -23,9 +23,8 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=bc429bdc16">
-<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
-<script src="/assets/js/site.js?v=bc429bdc16" defer></script>
+<link rel="stylesheet" href="/assets/css/site.css?v=4e3ad5f502">
+<script src="/assets/js/site.js?v=4e3ad5f502" defer></script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -37,7 +36,7 @@
    "url": "https://recallant.com/",
    "logo": "https://recallant.com/apple-touch-icon.png",
    "email": "hello@recallant.com",
-   "description": "Recallant measures and improves how AI assistants like ChatGPT, Gemini and Perplexity describe and recommend B2B brands.",
+   "description": "AI search visibility research and focused website improvements for B2B software brands, with platform and question scope agreed for each project.",
    "founder": {
     "@id": "https://recallant.com/about.html#prasanth"
    },
@@ -61,10 +60,11 @@
       <a href="/services.html">Services</a>
       <a href="/plans.html">Plans</a>
       <a href="/research.html">Research</a>
+      <a href="/method.html">Method</a>
       <a href="/about.html">About</a>
     </nav>
     <div class="nav__cta">
-      <a class="btn btn--signal btn--sm" href="#get-snapshot">Get a free snapshot</a>
+      <a class="btn btn--signal btn--sm" href="/contact.html">Start an enquiry</a>
       <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span></button>
     </div>
   </div>
@@ -75,9 +75,10 @@
     <a class="menu__link" style="--i:1" href="/services.html">Services</a>
     <a class="menu__link" style="--i:2" href="/plans.html">Plans</a>
     <a class="menu__link" style="--i:3" href="/research.html">Research</a>
-    <a class="menu__link" style="--i:4" href="/about.html">About</a>
+    <a class="menu__link" style="--i:4" href="/method.html">Method</a>
+    <a class="menu__link" style="--i:5" href="/about.html">About</a>
   </nav>
-  <a class="btn btn--signal" href="#get-snapshot">Get a free snapshot</a>
+  <a class="btn btn--signal" href="/contact.html">Start an enquiry</a>
   <p class="menu__note">Or email <a class="text-link" href="mailto:hello@recallant.com">hello@recallant.com</a></p>
 </div>
 <main id="main">
@@ -92,59 +93,7 @@
     </div>
   </div>
 </section>
-<section class="band band--night" id="get-snapshot" aria-labelledby="cta-title">
-  <div class="wrap cta">
-    <div class="cta__copy">
-      <p class="eyebrow">Free snapshot</p>
-      <h2 class="h2" id="cta-title">See what AI says about you.</h2>
-      <p class="lede">Send your product name. You’ll get a one-page snapshot by email.</p>
-      <ul class="cta__list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>20 questions your buyers ask, run several times each</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Where you’re named, where you’re missing, and which pages AI cites</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span>Free, and no call needed</span></li></ul>
-      <p><a class="arrow-link" href="/sample-snapshot.html">See a sample snapshot <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-    </div>
-    <form class="snap-form" data-snapshot-form action="https://formspree.io/f/mqpeglzv" method="post">
-      <div class="snap-form__fields">
-        <h3>Request your snapshot</h3>
-        <input type="hidden" name="_subject" value="Snapshot request from recallant.com">
-        <div class="snap-form__hp" aria-hidden="true">
-          <label for="sf-hp">Leave this field empty</label>
-          <input id="sf-hp" name="_gotcha" tabindex="-1" autocomplete="off">
-        </div>
-        <input type="hidden" name="interest" value="A free snapshot">
-        <div class="field">
-          <label for="sf-email">Work email</label>
-          <input id="sf-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com" aria-describedby="sf-email-error">
-          <p class="field__error" id="sf-email-error" hidden>Add an email address we can reply to.</p>
-        </div>
-        <div class="field">
-          <label for="sf-product">Product or company</label>
-          <input id="sf-product" name="product" autocomplete="organization" required placeholder="e.g. Acme Helpdesk" aria-describedby="sf-product-error">
-          <p class="field__error" id="sf-product-error" hidden>Add your product or company name.</p>
-        </div>
-        <div class="field">
-          <label for="sf-site">Website <span>(optional)</span></label>
-          <input id="sf-site" name="website" autocomplete="url" inputmode="url" placeholder="acme.com">
-        </div>
-        <div class="field">
-          <label for="sf-rivals">Competitors to compare <span>(optional)</span></label>
-          <input id="sf-rivals" name="competitors" placeholder="Up to three">
-        </div>
-        <button class="btn btn--signal" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7.5l8 5.5 8-5.5"/></svg><span>Send my request</span></button>
-        <p class="snap-form__note">We’ll reply to the email address you give here.</p>
-        <p class="snap-form__status" role="status" aria-live="polite"></p>
-      </div>
-      <div class="snap-form__done" tabindex="-1" hidden>
-        <span class="snap-form__tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>
-        <h3>Request sent.</h3>
-        <p>Thanks. We’ll reply to <b data-sent-to></b>.</p>
-        <button class="text-btn" type="button" data-form-reset>Send another request</button>
-      </div>
-      <div class="snap-form__alt">
-        <span>Or email <b data-copy-text>hello@recallant.com</b></span>
-        <button class="copy-btn" type="button" data-copy="hello@recallant.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8"/></svg><span>Copy</span></button>
-      </div>
-    </form>
-  </div>
-</section>
+<section class="band band--night" id="get-snapshot" aria-labelledby="cta-title"><div class="wrap closing-cta"><div><p class="eyebrow">Start a conversation</p><h2 class="h2" id="cta-title">Find your next useful step.</h2><p class="lede">Start with a snapshot request, a focused pilot, or a scoped audit. We will confirm the right fit before work begins.</p></div><div><a class="btn btn--signal" href="/contact.html">Choose your enquiry <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><p class="closing-note">Enquiries are reviewed through our shared Signal &amp; Syllable desk.</p></div></div></section>
 </main>
 
 <footer class="footer">
@@ -152,23 +101,23 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <a class="brand" href="/" aria-label="Recallant home"><svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect class="m-bg" width="64" height="64" rx="15"/><path class="m-r" d="M13.90 46.00 V16.00 H25.90 Q29.28 16.00 31.75 17.20 Q34.21 18.40 35.55 20.61 Q36.89 22.81 36.89 25.84 Q36.89 28.81 35.48 30.99 Q34.07 33.16 31.53 34.34 Q28.98 35.52 25.54 35.52 H17.61 V30.53 H25.53 Q27.17 30.53 28.35 29.95 Q29.54 29.37 30.18 28.32 Q30.82 27.26 30.82 25.84 Q30.82 24.40 30.18 23.36 Q29.53 22.31 28.34 21.74 Q27.16 21.16 25.51 21.16 H20.09 V46.00 ZM30.90 46.00 24.04 32.44 H30.55 L37.55 46.00 Z"/><circle class="m-dot" cx="45.6" cy="41.5" r="4.5"/></svg><span>Recallant</span></a>
-        <p>AI search visibility for B2B brands. Bengaluru, India.</p>
+        <p>AI search visibility for B2B brands.</p><p>A specialist product from <a href="https://signalandsyllable.com/">Signal &amp; Syllable ↗</a></p>
       </div>
       <nav aria-labelledby="f-explore">
         <h2 id="f-explore">Explore</h2>
-        <ul><li><a href="/services.html">Services</a></li><li><a href="/plans.html">Plans</a></li><li><a href="/research.html">Research</a></li><li><a href="/about.html">About</a></li></ul>
+        <ul><li><a href="/services.html">Services</a></li><li><a href="/plans.html">Plans</a></li><li><a href="/research.html">Research</a></li><li><a href="/method.html">Method</a></li><li><a href="/about.html">About</a></li></ul>
       </nav>
       <nav aria-labelledby="f-research">
         <h2 id="f-research">Research</h2>
-        <ul><li><a href="/helpdesk-study.html">Helpdesk study</a></li><li><a href="/sample-snapshot.html">Sample snapshot</a></li><li><a href="#get-snapshot">Free snapshot</a></li></ul>
+        <ul><li><a href="/helpdesk-study.html">Helpdesk study</a></li><li><a href="/sample-snapshot.html">Sample snapshot</a></li><li><a href="/contact.html#snapshot">Free snapshot</a></li></ul>
       </nav>
       <nav aria-labelledby="f-contact">
         <h2 id="f-contact">Contact</h2>
-        <ul><li><a href="mailto:hello@recallant.com">hello@recallant.com</a></li><li><a href="https://www.linkedin.com/in/prasanth-gorripati-44805b209/" rel="noopener">LinkedIn</a></li></ul>
+        <ul><li><a href="mailto:hello@recallant.com">hello@recallant.com</a></li><li><a href="https://www.linkedin.com/in/prasanth-s-44805b209/" rel="noopener">LinkedIn</a></li></ul>
       </nav>
     </div>
     <div class="footer__base">
-      <span>© 2026 Recallant.</span>
+      <span>© 2026 Recallant. <a href="/privacy.html">Privacy</a> · <a href="/contact.html">Contact</a></span>
       <span class="footer__promise"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5.5c0 4.4-3 8-7 9.5-4-1.5-7-5.1-7-9.5V6l7-3z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>We never buy reviews, links or mentions.</span>
     </div>
   </div>

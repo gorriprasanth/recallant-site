@@ -1,0 +1,44 @@
+name: Check Recallant website
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: recallant-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PYTHONUTF8: "1"
+    steps:
+      - name: Check out source and preserved research baseline
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Rebuild the static website
+        run: python _build/build.py
+      - name: Check pages, enquiry routes and unchanged study data
+        run: python _build/check_site.py
+      - name: Verify generated output is committed and reproducible
+        shell: bash
+        run: |
+          git diff --exit-code -- '*.html' sitemap.xml robots.txt llms.txt favicon.svg _build/data/mark-square.svg
+          untracked="$(git ls-files --others --exclude-standard -- '*.html' sitemap.xml robots.txt llms.txt favicon.svg _build/data/mark-square.svg)"
+          if [ -n "$untracked" ]; then
+            printf 'Generated output is not tracked:\n%s\n' "$untracked"
+            exit 1
+          fi

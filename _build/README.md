@@ -15,20 +15,36 @@ This regenerates every `.html` page, `sitemap.xml`, `robots.txt`, `llms.txt` and
 
 - Styles: `assets/css/site.css`. Behaviour: `assets/js/site.js`. Both are cache-busted by a content hash.
 - Fonts: Inter and Geist Mono, self-hosted in `assets/fonts` (SIL Open Font License, see the LICENSE files).
-- Study text: `_build/content/study-source.html`, published word for word on `helpdesk-study.html`.
+- Study source: `_build/content/study-source.html`, retained unchanged; metric wording clarified when rendering `helpdesk-study.html`.
 - Explorer data: `_build/data/helpdesk-explorer.json`, made by `_build/extract_explorer.py` from the raw
   study run in the project workspace (the raw answers are not in this repository).
 - Every number on the site comes from the October 2026 helpdesk study. Don't add figures without a source.
 
-## Request form
+## Enquiry journey
 
-The snapshot form is sent by [Formspree](https://formspree.io/) (free plan) to `hello@recallant.com`.
-Its endpoint is `FORM_ACTION` in `_build/build.py`, written into the form's `action`. `assets/js/site.js`
-posts JSON to that same address and shows a sent or error state; without JavaScript the form posts there
-directly. Submissions also appear in the Formspree dashboard. The hidden `_gotcha` field is Formspree's
-honeypot. To change where requests go, change the form's email in Formspree, not the site. Plan and study
-links preselect the form's "I'm interested in" choice through their `data-interest` attribute.
-(FormSubmit was used briefly in October 2026 and dropped after its activation link failed.)
+`contact.html` provides four deliberate choices: snapshot, pilot, audit and ongoing support.
+Each opens the shared Signal & Syllable enquiry desk with an allowlisted Recallant context.
+The visitor reviews and explicitly sends there. Server validation, fixed-recipient delivery,
+native fallback and retry identity remain in the Signal & Syllable project. This static site
+collects no enquiry fields or API keys. Backup: gorripatiprasanth@gmail.com.
+The existing hello@recallant.com forwarding address remains in the footer; no DNS/mail records changed.
+Formspree is no longer referenced by the site; its account and historical submissions were not deleted.
+
+## Source and evidence
+
+`studio_pages.py` authors the homepage and About; `offer_pages.py` authors Services, Plans,
+Method, Contact and Privacy. The original study file and explorer JSON remain unchanged.
+`evidence_language.py` clarifies automated first-named metric labels at render time, preserves
+all data values, and leaves the separately observed manual ChatGPT spot check distinct.
+The public figures are dated research evidence, not proof of a customer outcome.
+Private overview/handoff files are deliberately outside this public repository.
+
+## Verification and publishing
+
+Run `python _build/build.py` then `python _build/check_site.py` before publishing.
+The GitHub workflow runs these checks and checks that generated pages match the sources.
+The existing GitHub Pages branch deployment remains the hosting mechanism; no paid plan was added.
+Inspect all pages at phone/tablet/desktop widths and the enquiry links before an authorised release.
 
 ## Social images and icons (optional, needs Node and Playwright)
 
