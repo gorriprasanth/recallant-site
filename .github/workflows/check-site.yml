@@ -1,4 +1,4 @@
-name: Check Recallant website
+name: Verify and deploy Recallant
 
 on:
   push:
@@ -11,30 +11,36 @@ permissions:
 
 concurrency:
   group: recallant-check-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  PYTHONUTF8: "1"
+  WRANGLER_SEND_METRICS: "false"
+  CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV: "false"
 
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    env:
-      PYTHONUTF8: "1"
+    timeout-minutes: 15
     steps:
       - name: Check out source and preserved research baseline
-        uses: actions/checkout@v4
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.13"
-      - name: Rebuild the static website
-        run: python _build/build.py
-      - name: Check pages, enquiry routes and unchanged study data
-        run: python _build/check_site.py
-      - name: Check campaign labels stay on approved enquiry routes
-        run: node _build/check_campaign.cjs
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install pinned deployment tooling
+        run: npm ci --no-audit --no-fund
+      - name: Verify source, strict package and actual local Worker without credentials
+        run: npm run verify
       - name: Verify generated output is committed and reproducible
         shell: bash
         run: |
@@ -44,3 +50,45 @@ jobs:
             printf 'Generated output is not tracked:\n%s\n' "$untracked"
             exit 1
           fi
+      - name: Explain the disabled deployment gate
+        if: vars.CLOUDFLARE_DEPLOY_ENABLED != 'true'
+        run: echo 'Verification only. Recallant Cloudflare production deployment is disabled until the domain, mail records and reviewed release are ready.' >> "$GITHUB_STEP_SUMMARY"
+
+  deploy:
+    needs: verify
+    if: vars.CLOUDFLARE_DEPLOY_ENABLED == 'true' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    concurrency:
+      group: recallant-cloudflare-production
+      cancel-in-progress: false
+    steps:
+      - name: Check out the verified revision
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - name: Recreate the exact allowlisted package
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build:cloudflare
+      - name: Check the reviewed gate and deploy
+        env:
+          CLOUDFLARE_DEPLOY_ENABLED: ${{ vars.CLOUDFLARE_DEPLOY_ENABLED }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          node _build/cloudflare/preflight.mjs production
+          npx --no-install wrangler deploy
+      - name: Verify public hashes, headers and private-path denial without enquiries
+        run: node _build/cloudflare/check_public.mjs --base https://recallant.com

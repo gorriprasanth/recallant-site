@@ -117,13 +117,13 @@ class Document(HTMLParser):
 
 
 def public_files():
-    """GitHub Pages' branch layout excludes dot/underscore source directories."""
-    for path in ROOT.rglob("*"):
-        relative = path.relative_to(ROOT)
-        if any(part.startswith((".", "_")) for part in relative.parts):
-            continue
-        if path.is_file():
-            yield path
+    """Use the same explicit public inventory as the hosting package."""
+    names = json.loads((ROOT / "_build/cloudflare/public-files.json").read_text(encoding="utf-8"))
+    for name in names:
+        path = ROOT / name
+        if not path.is_file():
+            raise ValueError(f"Missing allowlisted public file: {name}")
+        yield path
 
 
 def main() -> int:

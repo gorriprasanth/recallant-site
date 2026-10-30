@@ -18,6 +18,7 @@ from __future__ import annotations
 import hashlib
 import html
 import json
+import os
 import pathlib
 import re
 import sys
@@ -26,6 +27,9 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 HERE = ROOT / "_build"
 
 SITE = "https://recallant.com"
+HOSTING_PROVIDER = os.environ.get("RECALLANT_HOSTING_PROVIDER", "GitHub Pages")
+if HOSTING_PROVIDER not in {"GitHub Pages", "Cloudflare"}:
+    raise ValueError("RECALLANT_HOSTING_PROVIDER must be GitHub Pages or Cloudflare")
 EMAIL = "hello@recallant.com"
 LINKEDIN = "https://www.linkedin.com/in/prasanth-s-44805b209/"
 UPDATED = "2026-10-29"
@@ -903,13 +907,20 @@ def main(argv) -> None:
         print("preview written to", out)
         return
 
+    out = ROOT
+    if argv:
+        if len(argv) != 2 or argv[0] != "--output":
+            raise ValueError("Use no arguments, --output DIR, or --preview DIR")
+        out = pathlib.Path(argv[1]).resolve()
+        out.mkdir(parents=True, exist_ok=True)
     for name, doc in PAGES.items():
-        (ROOT / name).write_text(doc, encoding="utf-8", newline="\n")
-    (ROOT / "sitemap.xml").write_text(sitemap(), encoding="utf-8", newline="\n")
-    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8", newline="\n")
-    (ROOT / "llms.txt").write_text(LLMS, encoding="utf-8", newline="\n")
-    (ROOT / "favicon.svg").write_text(favicon_svg(), encoding="utf-8", newline="\n")
-    (HERE / "data" / "mark-square.svg").write_text(favicon_svg(rounded=False), encoding="utf-8", newline="\n")
+        (out / name).write_text(doc, encoding="utf-8", newline="\n")
+    (out / "sitemap.xml").write_text(sitemap(), encoding="utf-8", newline="\n")
+    (out / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8", newline="\n")
+    (out / "llms.txt").write_text(LLMS, encoding="utf-8", newline="\n")
+    (out / "favicon.svg").write_text(favicon_svg(), encoding="utf-8", newline="\n")
+    if out == ROOT:
+        (HERE / "data" / "mark-square.svg").write_text(favicon_svg(rounded=False), encoding="utf-8", newline="\n")
     print("built:", ", ".join(sorted(PAGES)))
 
 

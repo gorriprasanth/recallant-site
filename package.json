@@ -1,0 +1,20 @@
+{
+  "name": "recallant-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22 <25"},
+  "scripts": {
+    "build": "python _build/build.py",
+    "check:source": "python _build/check_site.py && node _build/check_campaign.cjs",
+    "build:cloudflare": "node _build/cloudflare/package.mjs",
+    "check:package": "node _build/cloudflare/package.mjs --check",
+    "test:hosting": "node _build/cloudflare/check_hosting.mjs",
+    "cf:dry-run": "npm run check:package && wrangler deploy --dry-run --outdir .cloudflare/bundle",
+    "verify": "npm run build && npm run check:source && npm run build:cloudflare && npm run test:hosting && npm run cf:dry-run",
+    "dev:cloudflare": "npm run build:cloudflare && wrangler dev --local --env preview",
+    "deploy:preview": "npm run verify && node _build/cloudflare/preflight.mjs preview && wrangler deploy --env preview",
+    "deploy:production": "npm run verify && node _build/cloudflare/preflight.mjs production && wrangler deploy"
+  },
+  "devDependencies": {"wrangler": "4.155.0"}
+}

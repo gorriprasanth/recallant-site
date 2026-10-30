@@ -1,0 +1,9 @@
+# Keep deployment tooling private while the existing GitHub Pages branch remains active.
+exclude:
+  - _build
+  - node_modules
+  - package.json
+  - package-lock.json
+  - wrangler.jsonc
+  - .cloudflare
+  - .wrangler
