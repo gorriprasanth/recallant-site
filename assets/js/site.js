@@ -344,3 +344,34 @@
     });
   });
 })();
+
+// Optional page/performance measurement. No beacon loads before a visitor opts in.
+(()=>{
+ const token=({'signalandsyllable.com':'7af3307614174ed7ba70750ceb1804f7','recallant.com':'7413c74453c64bdcaf6186f359db633c'})[location.hostname];
+ if(!token)return;
+ const key='site-measurement-v1';
+ const privacySignal=navigator.globalPrivacyControl===true||navigator.doNotTrack==='1';
+ const excluded=/^\/(?:contact(?:\.html)?\/?|api(?:\/|$))/.test(location.pathname);
+ let choice='';try{choice=localStorage.getItem(key)||'';}catch{}
+ let loaded=false;
+ const load=()=>{if(loaded||privacySignal||excluded||choice!=='allow')return;loaded=true;const s=document.createElement('script');s.type='module';s.src='https://static.cloudflareinsights.com/beacon.min.js';s.dataset.cfBeacon=JSON.stringify({token});document.head.append(s);};
+ const footer=document.querySelector('footer');if(!footer)return;
+ const manage=document.createElement('button');manage.type='button';manage.className='measurement-manage';manage.textContent='Measurement preferences';footer.append(manage);
+ const panel=document.createElement('section');panel.className='measurement-choice';panel.hidden=true;panel.setAttribute('aria-label','Optional site measurement');
+ const text=document.createElement('p');text.textContent=privacySignal?'Your browser privacy preference is respected. Optional measurement is off.':'May we measure page visits and loading speed with Cloudflare? No advertising cookies, session recordings or enquiry contents. Your choice is saved on this device.';
+ const details=document.createElement('a');details.href='/privacy.html';details.textContent='Privacy details';
+ const controls=document.createElement('div');controls.className='measurement-actions';
+ const allow=document.createElement('button');allow.type='button';allow.textContent='Allow measurement';allow.disabled=privacySignal;
+ const decline=document.createElement('button');decline.type='button';decline.textContent='Keep it off';
+ const close=document.createElement('button');close.type='button';close.textContent='Close';
+ panel.append(text,details,controls);controls.append(allow,decline,close);document.body.append(panel);
+ const save=value=>{choice=value;try{localStorage.setItem(key,value);}catch{}panel.hidden=true;manage.focus();};
+ allow.addEventListener('click',()=>{save('allow');load();});
+ decline.addEventListener('click',()=>{const mustReload=loaded;save('deny');if(mustReload)location.reload();});
+ close.addEventListener('click',()=>{panel.hidden=true;manage.focus();});
+ manage.addEventListener('click',()=>{panel.hidden=false;(privacySignal?decline:allow).focus();});
+ panel.addEventListener('keydown',e=>{if(e.key==='Escape'){panel.hidden=true;manage.focus();}});
+ addEventListener('storage',e=>{if(e.key===key&&e.newValue!=='allow'&&loaded)location.reload();});
+ if(!choice&&!privacySignal&&!excluded)panel.hidden=false;
+ load();
+})();
