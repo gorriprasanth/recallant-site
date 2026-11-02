@@ -517,7 +517,7 @@ ORG = {
     "areaServed": "Worldwide",
 }
 PERSON = {
-    "@type": "Person", "@id": PERSON_ID, "name": "Prasanth G", "jobTitle": "Founder",
+    "@type": "Person", "@id": PERSON_ID, "name": "Prasanth", "jobTitle": "Founder",
     "worksFor": {"@id": ORG_ID}, "url": SITE + "/about.html",
     "image": SITE + "/assets/img/prasanth-640.jpg", "sameAs": [LINKEDIN],
     "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN"},

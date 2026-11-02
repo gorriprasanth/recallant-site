@@ -236,7 +236,7 @@ def main() -> int:
                 contexts.append(request[0])
         if Counter(contexts) != Counter(REQUESTS):
             fail("contact.html: each of the four exact shared enquiry contexts must appear once")
-        if not any(href.startswith("mailto:gorripatiprasanth@gmail.com") for href in docs["contact.html"].links):
+        if not any(href.startswith("mailto:hello@recallant.com") for href in docs["contact.html"].links):
             fail("contact.html: missing confirmed direct email fallback")
 
     for name, expected in EVIDENCE_HASHES.items():

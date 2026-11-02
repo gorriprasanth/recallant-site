@@ -8,7 +8,7 @@ from urllib.parse import urlencode
 
 
 ENQUIRY_DESK = "https://signalandsyllable.com/contact"
-CONTACT_EMAIL = "gorripatiprasanth@gmail.com"
+CONTACT_EMAIL = "hello@recallant.com"
 
 
 def _enquiry(request):

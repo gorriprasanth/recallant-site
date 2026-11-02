@@ -7,7 +7,7 @@ def home(b):
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">AI search visibility · B2B software</p>
-      <h1 id="page-title">Be the answer<span class="dot">.</span><br><span class="hero-secondary">Start with <br>the evidence.</span></h1>
+      <h1 id="page-title">Where does your software<br><span class="hero-secondary">appear in AI answers?</span></h1>
       <p class="lede">Understand where your brand appears in AI answers, which sources get cited, and what deserves attention next.</p>
       <div class="ctas"><a class="btn btn--signal" href="contact.html">Find your starting point {b.icon('arrow')}</a><a class="arrow-link" href="sample-snapshot.html">See a real sample</a></div>
       <p class="hero-caption">Research, a focused improvement pilot, and scoped ongoing support.</p>
@@ -49,7 +49,7 @@ def about(b):
 <h2>Measure before making a recommendation.</h2><p>Which brands appear when buyers ask about your category? Which sources are cited? Which questions deserve a closer look? Recallant brings those observations together, then helps turn them into a focused improvement brief.</p>
 <p>Our public helpdesk study gives you something concrete to inspect: saved answers, source patterns and an interactive question explorer. The results describe that sample and collection date.</p>
 <h2>One specialist. A connected studio.</h2><p>Recallant concentrates on visibility research and evidence-led priorities. When a project needs wider positioning, website, editorial or campaign work, <a href="https://signalandsyllable.com/products">Signal &amp; Syllable’s product collection</a> provides the next conversation. Additional work is scoped separately.</p>
-<h2>The person behind the work.</h2><p>Prasanth G founded Recallant and brings a background in IT and business analysis. Based in Bengaluru, India.</p><p><a class="text-link" href="{b.LINKEDIN}">Professional profile ↗</a></p>
+<h2>The person behind the work.</h2><p>Prasanth founded Recallant and brings a background in IT and business analysis. Based in Bengaluru, India.</p><p><a class="text-link" href="{b.LINKEDIN}">Professional profile ↗</a></p>
 <h2>What you can expect.</h2><ul><li>A written scope and fee before a paid engagement.</li><li>Sources and measurement definitions alongside findings.</li><li>A clear distinction between observed patterns and proposed actions.</li><li>Your review before content is published.</li></ul>
-</div><aside class="profile" aria-label="Founder"><img src="assets/img/prasanth-640.jpg" alt="Prasanth G, founder of Recallant" width="320" height="320"><div><p class="profile__name">Prasanth G</p><p class="profile__role">Founder, Recallant</p></div><dl><div><dt>Based in</dt><dd>Bengaluru, India</dd></div><div><dt>Background</dt><dd>IT and business analysis</dd></div><div><dt>Studio</dt><dd><a href="https://signalandsyllable.com/">Signal &amp; Syllable ↗</a></dd></div></dl></aside></div></section>'''
-    b.page(file='about.html',title='About Recallant — research with a practical next step',desc='Meet Recallant, the AI search visibility specialist within Signal & Syllable, founded by Prasanth G.',body=body,current='about.html',graph=[b.ORG,b.PERSON])
+</div><aside class="profile" aria-label="Founder"><img src="assets/img/prasanth-640.jpg" alt="Prasanth, founder of Recallant" width="320" height="320"><div><p class="profile__name">Prasanth</p><p class="profile__role">Founder, Recallant</p></div><dl><div><dt>Based in</dt><dd>Bengaluru, India</dd></div><div><dt>Background</dt><dd>IT and business analysis</dd></div><div><dt>Studio</dt><dd><a href="https://signalandsyllable.com/">Signal &amp; Syllable ↗</a></dd></div></dl></aside></div></section>'''
+    b.page(file='about.html',title='About Recallant — research with a practical next step',desc='Meet Recallant, the AI search visibility specialist within Signal & Syllable, founded by Prasanth.',body=body,current='about.html',graph=[b.ORG,b.PERSON])
