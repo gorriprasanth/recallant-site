@@ -1,3 +1,4 @@
+import {currencyResponse} from './currency.js';
 import publicFiles from './public-files.json' with {type:'json'};
 
 const allowed=new Set(publicFiles.map(name=>'/'+name));
@@ -25,6 +26,11 @@ export default {
   const url=new URL(request.url);const head=request.method==='HEAD';const preview=env.DEPLOYMENT_ENV==='preview';const options={head,preview,path:url.pathname};
   if(!['production','preview'].includes(env.DEPLOYMENT_ENV))return protect(text(503,'This site is temporarily unavailable.'),options);
   if(!['GET','HEAD'].includes(request.method))return protect(text(405,'Method not allowed.',{Allow:'GET, HEAD'}),options);
+  if(url.pathname==='/api/display-currency'){
+   const response=protect(currencyResponse(request),options);
+   response.headers.set('Cache-Control','private, no-store');
+   return response;
+  }
   const assetPath=url.pathname==='/'?'/index.html':url.pathname;
   if(!allowed.has(assetPath)){
    const missing=await env.ASSETS.fetch(new Request(new URL('/404.html',url),{method:'GET'}));

@@ -89,17 +89,17 @@ def plans(b):
         <a class="btn btn--signal" href="contact.html#pilot">Discuss the pilot</a>
       </article>
       <article class="offer-card" id="visibility-audit">
-        <p class="eyebrow">A wider question set</p><h2>AI Visibility Audit</h2><p class="lede">Quoted to scope</p>
+        <p class="eyebrow">A wider question set</p><h2>AI Visibility Audit</h2><p class="lede">From ₹45,000 <small>plus applicable taxes · one project</small></p>
         <p>A dedicated measurement project for your category, competitors and buyer questions. A larger or freshly collected sample is specified in the proposal.</p>
         <ul class="detail-list"><li>Agreed questions, surfaces and sample design</li><li>Separate mention, citation and first-named observations</li><li>Competitor and source patterns within the sample</li><li>A prioritised improvement brief with supporting evidence</li></ul>
-        <p>This is a separate engagement from the smaller Visibility &amp; Enquiry Pilot.</p>
+        <p>The starting fee covers one domain, one priority audience, an agreed evidence set, an improvement brief and one consolidated revision. Fresh collection, additional platforms and paid tools are quoted separately.</p>
         <a class="btn btn--quiet" href="contact.html#audit">Scope an audit</a>
       </article>
       <article class="offer-card" id="ongoing-support">
-        <p class="eyebrow">After the first review</p><h2>Ongoing support</h2><p class="lede">Quoted to scope</p>
+        <p class="eyebrow">After the first review</p><h2>Ongoing support</h2><p class="lede">From ₹30,000 / month <small>plus applicable taxes</small></p>
         <p>Build a repeatable programme around the priorities the first engagement identifies. Agree measurement, content and implementation responsibilities together.</p>
         <ul class="detail-list"><li>An agreed cadence and comparable question set</li><li>Selected content improvements and review points</li><li>Changes, missing evidence and next actions recorded</li><li>Deliverables and commercial terms confirmed in writing</li></ul>
-        <p>Collection, publishing access and paid tools are agreed before they become part of the work.</p>
+        <p>The starting monthly scope includes one evidence review, one priority-page copy update and one review call for one domain. Collection, additional content, implementation, publishing and paid tools are agreed separately.</p>
         <a class="btn btn--quiet" href="contact.html#monitoring">Discuss ongoing support</a>
       </article>
     </div>

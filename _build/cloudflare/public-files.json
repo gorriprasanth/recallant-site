@@ -29,5 +29,6 @@
   "services.html",
   "sitemap.xml",
   "assets/img/work-sample-snapshot.jpg",
-  "assets/data/helpdesk-study-explorer-data.csv"
+  "assets/data/helpdesk-study-explorer-data.csv",
+  "assets/js/price-display.js"
 ]

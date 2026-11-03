@@ -2231,3 +2231,5 @@ html { scroll-behavior: smooth; }
 .footer{background:#f7f6f2;border-top:1px solid var(--line)}
 .closing-cta{border-top:1px solid var(--line)}
 @media(max-width:600px){.recallant-hero{padding-top:calc(var(--nav-h) + 36px)}.hero-copy h1{max-width:15ch}.evidence-window{padding:20px}.answer-brands li{grid-template-columns:1fr 2.2rem}.answer-brands i{grid-column:1/-1;grid-row:2}.brand__note{display:none}}
+
+.currency-display{margin:24px 0 0;max-width:650px;font:14px/1.5 Arial,sans-serif;letter-spacing:0;color:#4d5a52}.currency-display label{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.currency-display select{width:auto;min-height:42px;padding:8px 12px;border:1px solid #b3bdb4;border-radius:4px;background:#fffefb;color:#202923;font:inherit}.currency-display p{margin:10px 0 0;font:inherit}.currency-display select:focus-visible{outline:3px solid #17634c;outline-offset:3px}

@@ -913,6 +913,9 @@ def main(argv) -> None:
             link=doc.new_tag('a', href='assets/data/helpdesk-study-explorer-data.csv', download='')
             link.string='Download the 40-question explorer data (CSV)'
             line.append(link);main.append(line)
+        if name=='privacy.html':
+            doc.find('main').append(BeautifulSoup('<section class="wrap"><h2>Price display preference</h2><p>Cloudflare estimates your country from the connection IP to suggest an initial display currency. Our currency endpoint returns only that currency, does not store the IP or country, and is not cached. Your saved selection takes priority; you can change it at any time. The currency selector remembers your choice for this tab in browser session storage. Estimated conversions use dated reference rates on your device, with no visitor request to an exchange-rate provider. INR remains the base price; the proposal confirms billing currency.</p></section>','html.parser'))
+        currency=doc.new_tag('script',src='assets/js/price-display.js',defer='');doc.body.append(currency)
         PAGES[name]=str(doc)
 
     PAGES["404.html"] = make_absolute(PAGES["404.html"])
