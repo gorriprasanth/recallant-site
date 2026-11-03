@@ -25,6 +25,7 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 HERE = ROOT / "_build"
+ICON_VERSION = hashlib.sha256((ROOT / 'assets/img/recallant-mark.svg').read_text(encoding='utf-8').encode('utf-8')).hexdigest()[:12]
 
 SITE = "https://recallant.com"
 HOSTING_PROVIDER = os.environ.get("RECALLANT_HOSTING_PROVIDER", "GitHub Pages")
@@ -555,9 +556,9 @@ def page(*, file: str, title: str, desc: str, body: str, current: str = "", tone
 <meta property="og:image:alt" content="{esc(og_alt)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="{theme}">
-<link rel="icon" href="favicon.ico" sizes="32x32">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.ico?v={ICON_VERSION}" sizes="32x32">
+<link rel="icon" href="favicon.svg?v={ICON_VERSION}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v={ICON_VERSION}">
 <link rel="preload" href="assets/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css?v={v}">
 <script src="assets/js/site.js?v={v}" defer></script>
