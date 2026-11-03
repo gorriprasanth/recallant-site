@@ -8,7 +8,7 @@ from urllib.parse import urlencode
 
 
 ENQUIRY_DESK = "https://signalandsyllable.com/contact"
-BOOKING_URL = 'https://calendar.zoho.in/zc/view/slot-booking/0802123e30cb552926c2ddc224b12e820000a37695fc75042eb2d16ec27eaec6659452198641bd50e6332fd0bac7dac208bbae136ec8d3b043702a9664e21648f194'
+BOOKING_URL = 'https://signalsyllablerecallant.zohobookings.in/introductory-conversation'
 CONTACT_EMAIL = "hello@recallant.com"
 
 
@@ -184,7 +184,7 @@ def contact(b):
     <h3>Prefer a conversation?</h3>
     <p>Choose an available time for a 20-minute introductory video call with Prasanth about your visibility question.</p>
     <p><a class="btn btn--signal" href="{BOOKING_URL}" rel="noreferrer">Book a 20-minute call</a></p>
-    <p class="small">Opens our shared S&amp;S / Recallant booking page on Zoho Calendar. Confirmations include the meeting link and cancellation option. Booking does not start a paid engagement.</p>
+    <p class="small">Opens our shared S&amp;S / Recallant booking page on Zoho Bookings. Confirmations include the meeting link and cancellation option. Booking does not start a paid engagement.</p>
     <h3>Prefer email?</h3>
     <p>Write to <a class="text-link" href="mailto:{CONTACT_EMAIL}?subject=Recallant%20enquiry">{CONTACT_EMAIL}</a> with your product, public website and the question you want to answer. This is also the backup route if the shared form is unavailable.</p>
     <p>Share public material first. Leave passwords, API keys and private customer records out of your enquiry. Read <a class="text-link" href="privacy.html">how enquiries are handled</a>.</p>
@@ -218,7 +218,7 @@ def privacy(b):
     <h3>Optional site measurement</h3><p>Cloudflare Web Analytics measures page visits and loading performance only after you choose Allow measurement. It does not use advertising cookies or session recordings. We do not load its script on the enquiry page or send form contents to it. Page, device, browser, approximate country and performance information may be processed by Cloudflare; hosting request logs are separate and operate regardless of this choice.</p><p>Your allow/off preference is stored in this browser’s local storage. Use Measurement preferences in the footer to change it. Browser Do Not Track and Global Privacy Control signals keep optional measurement off. Blocking storage can prevent your choice from persisting. Counts cover only participating browsers and are not a count of customers, qualified enquiries or revenue. See <a href="https://developers.cloudflare.com/web-analytics/data-metrics/data-origin-and-collection/">Cloudflare’s measurement documentation</a>.</p><h3>Questions or corrections</h3>
     <p>For questions about an enquiry, or to request a correction or deletion, contact <a class="text-link" href="mailto:{CONTACT_EMAIL}?subject=Recallant%20privacy%20request">{CONTACT_EMAIL}</a>. Include enough information for us to identify your request without resending sensitive material. Handling follows the shared enquiry privacy notice linked above.</p>
     <h2 class="h2">Booking a conversation</h2>
-    <p>Our optional booking link opens Zoho Calendar. Zoho processes the name, email address and appointment details you provide to verify and manage your booking, send confirmations and create a Zoho Meeting video link. We use these details to arrange your conversation. You can cancel from your confirmation email. Opening the booking link does not submit an enquiry. See <a class="text-link" href="https://www.zoho.com/privacy.html">Zoho’s privacy policy</a>.</p>
+    <p>Our optional booking link opens Zoho Bookings. Zoho processes the name, email address, optional contact number and appointment details you provide to manage your booking, send confirmations and create a Zoho Meeting video link. We use these details to arrange your conversation. You can cancel from your confirmation email. Opening the booking link does not submit an enquiry. See <a class="text-link" href="https://www.zoho.com/privacy.html">Zoho’s privacy policy</a>.</p>
     <h3>Other websites</h3>
     <p>Research sources, LinkedIn and other external links have their own privacy practices. Clicking those links takes you to the relevant provider’s website.</p>
   </div>
