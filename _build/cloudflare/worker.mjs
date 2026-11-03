@@ -15,7 +15,7 @@ function protect(response,{head=false,preview=false,path='',status=response.stat
  for(const [key,value]of Object.entries(security))headers.set(key,value);
  const html=(headers.get('Content-Type')||'').toLowerCase().startsWith('text/html');
  const cache=preview||status>=300?'no-store':html?'public, max-age=0, must-revalidate':/\.(?:png|jpg|ico|svg|woff2)$/.test(path)?'public, max-age=86400':'public, max-age=300';
- headers.set('Cache-Control',cache+', no-transform');
+ headers.set('Cache-Control',html?cache+', no-transform':/newsreader(?:-italic)?-latin-v1\.woff2$/.test(path)&&!preview&&status===200?'public, max-age=31536000, immutable':cache);
  if(preview)headers.set('X-Robots-Tag','noindex, nofollow');
  else headers.set('Strict-Transport-Security','max-age=31536000');
  return new Response(head?null:response.body,{status,statusText:status===response.status?response.statusText:'',headers});
@@ -30,6 +30,12 @@ export default {
    const response=protect(currencyResponse(request),options);
    response.headers.set('Cache-Control','private, no-store');
    return response;
+  }
+  // Only known public documents gain a clean-address alias. Never expose a
+  // private source path or create an arbitrary open redirect.
+  if(!url.pathname.endsWith('.html')&&allowed.has(url.pathname+'.html')){
+   if(!preview&&!['recallant.com','www.recallant.com'].includes(url.hostname))return protect(text(421,'Use recallant.com.'),options);
+   return protect(new Response(null,{status:301,headers:{Location:(preview?'':canonical)+url.pathname+'.html'+url.search}}),options);
   }
   const assetPath=url.pathname==='/'?'/index.html':url.pathname;
   if(!allowed.has(assetPath)){

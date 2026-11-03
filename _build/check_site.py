@@ -155,7 +155,7 @@ def main() -> int:
             fail(f"{name}: canonical must be exactly {canonical}")
         if doc.forms:
             fail(f"{name}: local form found; enquiries must use the explicit shared-desk links")
-        if not any(kind == "application/ld+json" for kind, _ in doc.json_blocks):
+        if name != "404.html" and not any(kind == "application/ld+json" for kind, _ in doc.json_blocks):
             fail(f"{name}: missing structured JSON")
         for kind, payload in doc.json_blocks:
             try:

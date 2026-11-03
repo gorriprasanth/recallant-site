@@ -924,6 +924,8 @@ def main(argv) -> None:
 
     use_cases.render(b)
     artistic_pages.apply(b)
+    import review_fixes
+    review_fixes.apply(b)
     PAGES["404.html"] = make_absolute(PAGES["404.html"])
 
     if len(argv) >= 2 and argv[0] == "--preview":
