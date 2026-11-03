@@ -22,7 +22,8 @@ def home(b):
 
 def apply(b):
     wordmark=(b.HERE/'data/editorial-wordmark.svg').read_text(encoding='utf-8')
-    version=hashlib.sha256((b.ROOT/'assets/css/editorial.css').read_bytes()).hexdigest()[:10]
+    # Git normalizes text line endings; hash normalized text on Windows and Linux alike.
+    version=hashlib.sha256((b.ROOT/'assets/css/editorial.css').read_text(encoding='utf-8').encode('utf-8')).hexdigest()[:10]
     for name,html in list(b.PAGES.items()):
         doc=BeautifulSoup(html,'html.parser');doc.body['class']=['rc-editorial','rc-'+name.removesuffix('.html')]
         for logo in doc.select('a.brand'):
