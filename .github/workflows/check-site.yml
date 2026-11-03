@@ -83,6 +83,7 @@ jobs:
       - name: Recreate the exact allowlisted package
         run: |
           npm ci --no-audit --no-fund
+          python -m pip install -r requirements-build.txt
           npm run build:cloudflare
       - name: Check the reviewed gate and deploy
         env:
