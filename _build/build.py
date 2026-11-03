@@ -129,10 +129,10 @@ MARK = (f'<svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" focusa
 
 
 def favicon_svg(rounded: bool = True) -> str:
-    rx = ' rx="15"' if rounded else ""
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">'
-            f'<rect width="64" height="64"{rx} fill="#050807"/><path d="{R_D}" fill="#f2f5f3"/>'
-            f'<circle {DOT} fill="#5ccaa8"/></svg>\n')
+    """Use the approved search-result mark for the current design."""
+    mark = (ROOT / 'assets/img/recallant-mark.svg').read_text(encoding='utf-8')
+    radius = 14 if rounded else 0
+    return mark.replace('><circle', f'><rect width="90" height="90" rx="{radius}" fill="#f7f5ed"/><circle', 1)
 
 
 # ------------------------------------------------------------------ small building blocks
@@ -880,9 +880,9 @@ def to_fragment(doc: str, title: str) -> str:
 
 
 def main(argv) -> None:
-    import studio_pages, offer_pages
+    import studio_pages, offer_pages, artistic_pages
     b = sys.modules[__name__]
-    studio_pages.home(b)
+    artistic_pages.home(b)
     offer_pages.services(b)
     offer_pages.plans(b)
     offer_pages.method(b)
@@ -920,6 +920,7 @@ def main(argv) -> None:
         currency=doc.new_tag('script',src='assets/js/price-display.js',defer='');doc.body.append(currency)
         PAGES[name]=str(doc)
 
+    artistic_pages.apply(b)
     PAGES["404.html"] = make_absolute(PAGES["404.html"])
 
     if len(argv) >= 2 and argv[0] == "--preview":

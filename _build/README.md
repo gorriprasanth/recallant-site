@@ -108,3 +108,9 @@ writes the pages plus `index-fragment.html`, the body-only form a claude.ai arti
 
 `CNAME` and `googlef44257636166e7ad.html` (Google Search Console verification) must stay in the root.
 `404.html` uses root-absolute links so the branded missing-page response works at any path.
+
+## Search-result identity - approved 3 November 2026
+
+The owner approved Option A: a search lens containing a highlighted result, beside the single Recallant wordmark. `_build/artistic_pages.py` supplies the new homepage and shared identity after ordinary page generation. `assets/css/editorial.css` is the final stylesheet. It uses licensed, self-hosted Newsreader with the existing Inter and Geist Mono. The 40-file allowlist includes the fonts, licence, vector mark/wordmark and original optical illustration. Share images, PDF price sheet and Apple/ICO assets are aligned to this identity. Preserve the historical study sources, original prices and scoped enquiry URLs. No deployment is authorized merely by a build.
+
+Canonical outlined wordmark: `_build/data/editorial-wordmark.svg`; standalone symbol: `assets/img/recallant-mark.svg`. The rejected prefix-R logo must not be restored. Artwork sources are `_build/og/og.html`, `og-study.html` and `prices.html`; `_build/render.mjs` exports them, with `PLAYWRIGHT_CHANNEL=msedge` supported for Windows and `NODE_PATH` supported for a shared Playwright installation. `_build/make_ico.py` packs the rendered favicon sizes. The normal CI build preserves the reviewed binary artwork instead of regenerating PDFs with changing metadata.

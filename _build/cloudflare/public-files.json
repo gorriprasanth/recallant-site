@@ -31,5 +31,12 @@
   "assets/img/work-sample-snapshot.jpg",
   "assets/data/helpdesk-study-explorer-data.csv",
   "assets/js/price-display.js",
-  "assets/downloads/recallant-prices-inr.pdf"
+  "assets/downloads/recallant-prices-inr.pdf",
+  "assets/fonts/newsreader.woff",
+  "assets/fonts/newsreader-italic.woff",
+  "assets/fonts/LICENSE-Newsreader.txt",
+  "assets/img/recallant-logo.svg",
+  "assets/img/recallant-mark.svg",
+  "assets/img/reading-aperture.svg",
+  "assets/css/editorial.css"
 ]

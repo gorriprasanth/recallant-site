@@ -4,16 +4,16 @@
 import { createRequire } from "module";
 import path from "path";
 import fs from "fs";
-import { fileURLToPath } from "url";
+import { fileURLToPath, pathToFileURL } from "url";
 
 const require = createRequire(import.meta.url);
 let pw;
 try { pw = require("playwright"); } catch { pw = require(path.join(process.env.NODE_PATH || "", "playwright")); }
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const browser = await pw.chromium.launch();
+const browser = await pw.chromium.launch(process.env.PLAYWRIGHT_CHANNEL ? {channel:process.env.PLAYWRIGHT_CHANNEL} : {});
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 for (const name of ["og", "og-study"]) {
-  await page.goto("file://" + path.join(root, "_build/og", name + ".html"));
+  await page.goto(pathToFileURL(path.join(root, "_build/og", name + ".html")).href);
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: path.join(root, name + ".png") });
 }
@@ -27,5 +27,8 @@ async function icon(svg, size, out) {
 fs.mkdirSync(path.join(root, "_build/tmp"), { recursive: true });
 for (const s of [16, 32, 48]) await icon(svgRounded, s, path.join(root, `_build/tmp/fav-${s}.png`));
 await icon(svgSquare, 180, path.join(root, "apple-touch-icon.png"));
+await page.goto(pathToFileURL(path.join(root, '_build/og/prices.html')).href);
+await page.evaluate(() => document.fonts.ready);
+await page.pdf({path:path.join(root,'assets/downloads/recallant-prices-inr.pdf'),preferCSSPageSize:true,printBackground:true});
 await browser.close();
 console.log("rendered og.png, og-study.png, apple-touch-icon.png and favicon PNGs in _build/tmp (pack them with _build/make_ico.py)");
