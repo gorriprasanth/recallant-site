@@ -39,6 +39,8 @@ jobs:
           cache: npm
       - name: Install pinned deployment tooling
         run: npm ci --no-audit --no-fund
+      - name: Install pinned HTML build dependency
+        run: python -m pip install -r requirements-build.txt
       - name: Verify source, strict package and actual local Worker without credentials
         run: npm run verify
       - name: Verify generated output is committed and reproducible
