@@ -2110,3 +2110,74 @@ html { scroll-behavior: smooth; }
 .prose h2 { overflow-wrap:anywhere; }
 
 .measurement-manage{display:block;margin:20px auto;padding:8px 12px;border:1px solid currentColor;border-radius:4px;background:transparent;color:inherit;font:inherit;font-size:13px;cursor:pointer}.measurement-choice{position:fixed;z-index:100;right:16px;bottom:16px;width:min(420px,calc(100vw - 32px));box-sizing:border-box;padding:20px;background:#f7f6f2;color:#191d24;border:1px solid #b8beb9;border-radius:8px;box-shadow:0 6px 30px #0002;font:14px/1.5 Arial,sans-serif}.measurement-choice[hidden]{display:none}.measurement-choice p{margin:0 0 8px;font:inherit}.measurement-choice a{color:#263fbd;text-decoration:underline}.measurement-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.measurement-actions button{border:1px solid #5b626a;border-radius:4px;padding:8px 10px;background:white;color:#191d24;font:inherit;cursor:pointer}.measurement-actions button:disabled{opacity:.5;cursor:default}.measurement-choice :focus-visible,.measurement-manage:focus-visible{outline:3px solid #415ce5;outline-offset:3px}@media print{.measurement-choice,.measurement-manage{display:none}}
+
+
+/* ==== DESIGN POLISH 2026-11 :: START ====
+   Appended to the end of site.css. To roll back, delete everything from this line to the END line below
+   (and put the stylesheet link back to ?v=476265a170 in the pages, or restore the pages from the backup).
+   Designed against site.css with SHA-256 a9c7686e333c... (see FILE_MANIFEST.csv for the full hash). */
+
+:root { --r-btn: var(--r-pill); --t-mono: 0.8125rem; }   /* the mono label size is now 13px; buttons are pills, as on Signal & Syllable */
+
+/* Arrows only on links that leave the site: own-page buttons and links lose theirs */
+.btn:not([href^="http"]) > svg,
+.arrow-link:not([href^="http"]) > svg,
+.arrow-link:not([href^="http"]):not([href^="#"]) > span[aria-hidden="true"] { display: none; }   /* a down arrow on a same-page link stays: it completes the sentence ("Compare the four ↓") */
+
+/* Smallest labels in the evidence card and the explorer */
+.evidence-window__top,
+.evidence-window__foot,
+.explorer__lead { font-size: 12px; }
+
+/* 1. One button shape: a pill, as on Signal & Syllable */
+.btn { border-radius: var(--r-btn); }
+
+/* 1b. Headline tracking: tight, but the letters no longer touch */
+.h-display, .hero-copy h1, .article-hero h1, .sheet__head h1 { letter-spacing: -.034em; }
+
+/* 2. One radius scale for cards, and no label below 13px */
+.offer-card { border-radius: var(--r-md); }
+.offer-card .eyebrow { font-size: var(--t-micro); }
+
+/* 3. Contrast: the question counts inside the active tab */
+.explorer__tab[aria-pressed="true"] .dim { color: var(--snow-2); }
+
+/* 4. "A Signal & Syllable product" beside the logo */
+.brand__note { display: none; }
+@media (min-width: 1000px) {
+  /* inherits the nav's own text colour, so it reads on both the dark and the light header */
+  .brand__note { display: inline-block; margin-left: 12px; padding-left: 14px; border-left: 1px solid rgba(128, 138, 133, .55); font-size: var(--t-micro); font-weight: 500; letter-spacing: 0; color: inherit; opacity: .8; white-space: nowrap; }
+}
+
+/* 5. Hero: a real saved answer, with the marker a missing brand would get */
+.answer-window .answer-q { margin: 0 0 22px; font-size: clamp(1.1rem, 1.7vw, 1.4rem); line-height: 1.3; letter-spacing: -.03em; font-weight: 600; color: var(--snow); }
+.answer-window .answer-q__label { display: block; margin-bottom: 9px; font: 600 var(--t-mono) var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--mint); }
+.answer-brands { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 10px; }
+.answer-brands li { display: grid; grid-template-columns: 12rem 1fr 2.2rem; align-items: center; gap: 14px; padding: 8px 10px; border: 1px dashed transparent; border-radius: 8px; font-size: .95rem; }
+.answer-brands i { display: block; height: 8px; border-radius: 4px; background: linear-gradient(to right, var(--mint) var(--bar), #ffffff12 var(--bar)); }
+.answer-brands b { font: 1rem var(--font-mono); text-align: right; }
+.answer-brands em { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: var(--mint-wash); color: var(--mint); font: normal 600 .72rem var(--font-mono); letter-spacing: .02em; white-space: nowrap; }
+.answer-brands .is-you { border-color: #ff8a7a88; background: #ff8a7a12; }
+.answer-brands .is-you em { background: #ff8a7a26; color: #ff9e90; }
+.answer-brands .is-you i { background: #ffffff12; }
+.answer-sources { margin: 0 0 4px; font-size: .88rem; line-height: 1.6; color: var(--snow-2); }
+.answer-sources span { display: block; margin-bottom: 2px; font: 600 var(--t-mono) var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--snow-3); }
+@media (max-width: 520px) {
+  .answer-brands li { grid-template-columns: 1fr 2rem; gap: 6px 10px; }
+  .answer-brands i { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* 6. Show the deliverable: the Freshdesk sample, as the client receives it */
+.work-thumb { display: block; grid-column: 1 / -1; margin-top: 44px; color: inherit; text-decoration: none; }
+.work-thumb img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover; object-position: top; border: 1px solid var(--line); border-radius: var(--r-md); box-shadow: 0 18px 50px rgba(10, 17, 14, .1); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+.work-thumb:hover img, .work-thumb:focus-visible img { transform: translateY(-3px); box-shadow: 0 24px 60px rgba(10, 17, 14, .16); }
+.work-thumb:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; border-radius: var(--r-md); }
+.work-thumb__label { display: block; margin-top: 14px; font-size: var(--t-small); color: var(--ink-2); }
+@media (min-width: 900px) {
+  .work-thumb { max-width: 640px; justify-self: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-thumb img { transition: none; }
+  .work-thumb:hover img, .work-thumb:focus-visible img { transform: none; }
+}
+/* ==== DESIGN POLISH 2026-11 :: END ==== */

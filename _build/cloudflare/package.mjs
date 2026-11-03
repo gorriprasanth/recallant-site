@@ -31,7 +31,7 @@ function inventory(folder,prefix=''){
  });
 }
 export function checkPackage(){
- assert.equal(new Set(publicNames).size,29,'The reviewed public allowlist must have 29 unique files');
+ assert.equal(new Set(publicNames).size,31,'The reviewed public allowlist must have 31 unique files');
  assert.deepEqual(inventory(output).sort(),[...publicNames].sort(),'The upload directory must contain only the exact public allowlist');
  const manifest=JSON.parse(readFileSync(manifestPath,'utf8'));
  assert.equal(manifest.hostingProvider,'Cloudflare');

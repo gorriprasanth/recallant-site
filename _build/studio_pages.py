@@ -12,14 +12,7 @@ def home(b):
       <div class="ctas"><a class="btn btn--signal" href="contact.html">Find your starting point {b.icon('arrow')}</a><a class="arrow-link" href="sample-snapshot.html">See a real sample</a></div>
       <p class="hero-caption">Research, a focused improvement pilot, and scoped ongoing support.</p>
     </div>
-    <a class="evidence-window" href="helpdesk-study.html" aria-label="Read the helpdesk study behind this comparison">
-      <div class="evidence-window__top"><span class="status-dot"></span>RECALLANT / EVIDENCE NOTE <span>↗</span></div>
-      <p class="kicker">Help Scout · Helpdesk study</p>
-      <h2>A source in the answer.<br>A different place in the list.</h2>
-      <div class="signal-bars"><div><span>Own site cited</span><b>21%</b><i style="--bar:84%"></i></div><div><span>First brand named</span><b>7%</b><i style="--bar:28%"></i></div></div>
-      <p class="evidence-reading">Being cited and being named first measure different things. Neither alone tells you whether a buyer chose the product.</p>
-      <div class="evidence-window__foot">Perplexity · 6 Oct 2026<br>Weighted study rates · naming order is a proxy</div>
-    </a>
+    {(b.HERE / 'data/answer-window.html').read_text(encoding='utf-8')}
   </div>
 </section>
 <div class="research-strip"><div class="wrap"><span><strong>220</strong> saved Perplexity answers</span><span><strong>44</strong> buyer questions</span><span><strong>5</strong> runs per question</span><a href="method.html">Read the measurement method ↗</a></div></div>
@@ -38,7 +31,7 @@ def home(b):
 </div></section>
 <section class="band band--paper" aria-labelledby="sample-title"><div class="wrap sample-intro">
   <div><p class="eyebrow">A deliverable you can inspect</p><h2 class="h2" id="sample-title">The findings.<br>The sources.<br>The next decision.</h2></div>
-  <div><p class="lede">Open the Freshdesk sample to see how a brand’s visibility becomes a focused review: where it appears, where it is absent, and which pages deserve investigation.</p><p>Built from the published helpdesk study. It is a research example, not a client result.</p><div class="ctas"><a class="btn btn--signal" href="sample-snapshot.html">Open the sample {b.icon('arrow')}</a><a class="arrow-link" href="research.html">Browse the research</a></div></div>
+  <div><p class="lede">Open the Freshdesk sample to see how a brand’s visibility becomes a focused review: where it appears, where it is absent, and which pages deserve investigation.</p><p>Built from the published helpdesk study. It is a research example, not a client result.</p><a class="work-thumb" href="sample-snapshot.html"><img src="assets/img/work-sample-snapshot.jpg" alt="Freshdesk research sample, not client work" width="800" height="500" loading="eager" decoding="async"></a><div class="ctas"><a class="btn btn--signal" href="sample-snapshot.html">Open the sample {b.icon('arrow')}</a><a class="arrow-link" href="research.html">Browse the research</a></div></div>
 </div></section>'''
     b.page(file='index.html', title='Recallant — AI search visibility, grounded in evidence', desc='AI search visibility research and focused website improvements for B2B software brands. Explore the evidence, compare the offers and start a Recallant enquiry.', body=body, tone='night', graph=[b.ORG,b.PERSON])
 
@@ -48,7 +41,7 @@ def about(b):
 <section class="band band--paper band--flush"><div class="wrap about-intro"><div class="prose">
 <h2>Measure before making a recommendation.</h2><p>Which brands appear when buyers ask about your category? Which sources are cited? Which questions deserve a closer look? Recallant brings those observations together, then helps turn them into a focused improvement brief.</p>
 <p>Our public helpdesk study gives you something concrete to inspect: saved answers, source patterns and an interactive question explorer. The results describe that sample and collection date.</p>
-<h2>One specialist. A connected studio.</h2><p>Recallant concentrates on visibility research and evidence-led priorities. When a project needs wider positioning, website, editorial or campaign work, <a href="https://signalandsyllable.com/products">Signal &amp; Syllable’s product collection</a> provides the next conversation. Additional work is scoped separately.</p>
+<h2>One specialist. A connected studio.</h2><p>Recallant concentrates on visibility research and evidence-led priorities. When a project needs wider positioning, website, editorial or campaign work, <a href="https://signalandsyllable.com/services">Signal &amp; Syllable’s four service areas</a> provides the next conversation. Additional work is scoped separately.</p>
 <h2>The person behind the work.</h2><p>Prasanth founded Recallant and brings a background in IT and business analysis. Based in Bengaluru, India.</p><p><a class="text-link" href="{b.LINKEDIN}">Professional profile ↗</a></p>
 <h2>What you can expect.</h2><ul><li>A written scope and fee before a paid engagement.</li><li>Sources and measurement definitions alongside findings.</li><li>A clear distinction between observed patterns and proposed actions.</li><li>Your review before content is published.</li></ul>
 </div><aside class="profile" aria-label="Founder"><img src="assets/img/prasanth-640.jpg" alt="Prasanth, founder of Recallant" width="320" height="320"><div><p class="profile__name">Prasanth</p><p class="profile__role">Founder, Recallant</p></div><dl><div><dt>Based in</dt><dd>Bengaluru, India</dd></div><div><dt>Background</dt><dd>IT and business analysis</dd></div><div><dt>Studio</dt><dd><a href="https://signalandsyllable.com/">Signal &amp; Syllable ↗</a></dd></div></dl></aside></div></section>'''

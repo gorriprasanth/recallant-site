@@ -27,5 +27,7 @@
   "robots.txt",
   "sample-snapshot.html",
   "services.html",
-  "sitemap.xml"
+  "sitemap.xml",
+  "assets/img/work-sample-snapshot.jpg",
+  "assets/data/helpdesk-study-explorer-data.csv"
 ]

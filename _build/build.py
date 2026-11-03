@@ -893,6 +893,28 @@ def main(argv) -> None:
     sample()
     studio_pages.about(b)
     not_found()
+    from bs4 import BeautifulSoup
+    for name, html in list(PAGES.items()):
+        doc=BeautifulSoup(html, 'html.parser')
+        brand=doc.select_one('header .brand')
+        if brand:
+            note=doc.new_tag('small', attrs={'class':'brand__note'})
+            note.string='a Signal & Syllable product'
+            brand.append(note)
+        closing=doc.select_one('.closing-cta')
+        if closing:
+            line=doc.new_tag('p', attrs={'class':'closing-note'})
+            link=doc.new_tag('a', href=offer_pages.BOOKING_URL)
+            link.string='Book a 20-minute call'
+            line.append('Prefer to talk first? ');line.append(link);closing.append(line)
+        if name=='helpdesk-study.html':
+            main=doc.find('main')
+            line=doc.new_tag('p', attrs={'class':'wrap evidence-caption'})
+            link=doc.new_tag('a', href='assets/data/helpdesk-study-explorer-data.csv', download='')
+            link.string='Download the 40-question explorer data (CSV)'
+            line.append(link);main.append(line)
+        PAGES[name]=str(doc)
+
     PAGES["404.html"] = make_absolute(PAGES["404.html"])
 
     if len(argv) >= 2 and argv[0] == "--preview":
@@ -917,7 +939,7 @@ def main(argv) -> None:
         (out / name).write_text(doc, encoding="utf-8", newline="\n")
     (out / "sitemap.xml").write_text(sitemap(), encoding="utf-8", newline="\n")
     (out / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8", newline="\n")
-    (out / "llms.txt").write_text(LLMS, encoding="utf-8", newline="\n")
+    (out / "llms.txt").write_text(LLMS + "\nBooking: " + offer_pages.BOOKING_URL + "\n", encoding="utf-8", newline="\n")
     (out / "favicon.svg").write_text(favicon_svg(), encoding="utf-8", newline="\n")
     if out == ROOT:
         (HERE / "data" / "mark-square.svg").write_text(favicon_svg(rounded=False), encoding="utf-8", newline="\n")
