@@ -7,9 +7,10 @@ const base=argument('--base');assert.ok(process.argv.includes('--base')&&base,'P
 const url=new URL(base);assert.equal(url.protocol,'https:');assert.equal(url.pathname,'/');assert.ok(!url.username&&!url.password&&!url.search&&!url.hash);
 const preview=process.argv.includes('--preview');
 assert.ok(preview?url.hostname.endsWith('.workers.dev'):url.origin==='https://recallant.com','Unexpected public verification target');
-const checks=await checkRoutes({base,manifest:checkPackage(),preview});
+const propagationBudget={used:0,maximum:6};
+const checks=await checkRoutes({base,manifest:checkPackage(),preview,propagationBudget});
 if(!preview){for(const origin of ['http://recallant.com','http://www.recallant.com','https://www.recallant.com']){
  const response=await fetch(origin+'/services.html?utm_campaign=launch&x=a%2Bb',{redirect:'manual',signal:AbortSignal.timeout(15000)});
  assert.equal(response.status,308);assert.equal(response.headers.get('location'),'https://recallant.com/services.html?utm_campaign=launch&x=a%2Bb');
 }}
-console.log(JSON.stringify({base:url.origin,checks,preview,realEmailsSent:0,retries:0}));
+console.log(JSON.stringify({base:url.origin,checks,preview,realEmailsSent:0,retries:propagationBudget.used}));

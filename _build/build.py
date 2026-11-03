@@ -849,6 +849,7 @@ def make_absolute(doc: str) -> str:
 
 def sitemap() -> str:
     pages = ["", "services.html", "plans.html", "research.html", "helpdesk-study.html", "sample-snapshot.html", "about.html", "method.html", "contact.html", "privacy.html"]
+    pages += ['use-cases.html', 'use-case-ai-shortlist.html', 'use-case-priority-page.html']
     urls = "".join(f"  <url><loc>{SITE}/{p}</loc><lastmod>{UPDATED}</lastmod></url>\n" for p in pages)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             + urls + "</urlset>\n")
@@ -881,7 +882,7 @@ def to_fragment(doc: str, title: str) -> str:
 
 
 def main(argv) -> None:
-    import studio_pages, offer_pages, artistic_pages
+    import studio_pages, offer_pages, artistic_pages, use_cases
     b = sys.modules[__name__]
     artistic_pages.home(b)
     offer_pages.services(b)
@@ -921,6 +922,7 @@ def main(argv) -> None:
         currency=doc.new_tag('script',src='assets/js/price-display.js',defer='');doc.body.append(currency)
         PAGES[name]=str(doc)
 
+    use_cases.render(b)
     artistic_pages.apply(b)
     PAGES["404.html"] = make_absolute(PAGES["404.html"])
 

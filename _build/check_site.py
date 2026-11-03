@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://recallant.com/"
 BASELINE = "dcb51907a4c6ab92aa13c840117efce3ca0e49d9"
 CONTENT_PAGES = {
+    "use-cases.html", "use-case-ai-shortlist.html", "use-case-priority-page.html",
     "index.html", "services.html", "plans.html", "research.html",
     "helpdesk-study.html", "sample-snapshot.html", "about.html",
     "method.html", "contact.html", "privacy.html", "404.html",
