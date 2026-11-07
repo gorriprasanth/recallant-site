@@ -926,6 +926,10 @@ def main(argv) -> None:
     artistic_pages.apply(b)
     import review_fixes
     review_fixes.apply(b)
+    import social_links
+    for social_name, social_doc in list(PAGES.items()):
+        PAGES[social_name] = social_links.enrich(social_doc, social_links.load())
+
     PAGES["404.html"] = make_absolute(PAGES["404.html"])
 
     if len(argv) >= 2 and argv[0] == "--preview":
