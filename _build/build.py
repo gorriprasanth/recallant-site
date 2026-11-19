@@ -742,15 +742,15 @@ def study() -> None:
 # ================================================================== SAMPLE SNAPSHOT
 
 def sample() -> None:
-    named = ["Best helpdesk software for a small business", "Best omnichannel support for email, chat and WhatsApp",
-             "Best helpdesk for companies in India", "Best helpdesk for a remote support team", "Best Zendesk alternatives"]
+    exact = {q['id']: q['q'] for q in json.loads((HERE / 'data/helpdesk-explorer.json').read_text(encoding='utf-8'))}
+    named = [exact[key] for key in ['d01', 'd06', 'd12', 'd15', 'a01']]
     named_html = "".join(f'<li><span>{q}</span><span class="qlist__meta">{pips(5)}<span>First named in 5 of 5</span></span></li>' for q in named)
     missing = [
-        ("Best customer service platform for an ecommerce store", "0 of 5", "Gorgias (5 of 5)"),
-        ("Best shared inbox tool for customer support", "0 of 5", "Help Scout (5 of 5)"),
-        ("Helpdesk with the best AI chatbot", "3 of 5", "Intercom (5 of 5)"),
-        ("Replacing a shared Gmail inbox", "2 of 5", "Help Scout (5 of 5)"),
-        ("Best support software for a SaaS startup", "5 of 5", "Plain (4 of 5)"),
+        (exact["d05"], "0 of 5", "Gorgias (5 of 5)"),
+        (exact["d13"], "0 of 5", "Help Scout (5 of 5)"),
+        (exact["d09"], "3 of 5", "Intercom (5 of 5)"),
+        (exact["a08"], "2 of 5", "Help Scout (5 of 5)"),
+        (exact["d02"], "5 of 5", "Plain (4 of 5)"),
     ]
     missing_html = "".join(f"<tr><td>{q}</td><td>{n}</td><td>{f}</td></tr>" for q, n, f in missing)
     bars = "".join(f'<div class="hbars__row"><span class="hbars__name">{d}</span><span class="hbars__track">'
@@ -764,11 +764,11 @@ def sample() -> None:
         <div>
           <p class="kicker">AI visibility snapshot</p>
           <h1 id="page-title">Freshdesk: a view from the study</h1>
-          <p class="sheet__meta">Perplexity · 40 buyer questions about helpdesk software · 5 runs each · 6 October 2026</p>
+          <p class="sheet__meta">Perplexity · 40 non-branded questions (200 answers) within a 44-question archive (220 answers) · 5 runs per question · 6 October 2026</p>
         </div>
         <span class="stamp">{icon('doc')}Sample</span>
       </header>
-      <div class="notice">{icon('info')}<p>This is a sample of the free snapshot, filled in with Freshdesk’s numbers from our <a href="helpdesk-study.html">public helpdesk study</a>. Freshdesk is not a client. The scope of a new snapshot is confirmed after we review your product and available evidence.</p></div>
+      <div class="notice">{icon('info')}<p>This is a published study excerpt using Freshdesk’s numbers from our <a href="helpdesk-study.html">public helpdesk study</a>. Freshdesk is not a client. A free snapshot is a small observation whose scope we confirm first; it does not promise this report’s depth or fresh research.</p></div>
       <div class="kpis">
         <div class="kpi"><strong>61%</strong><div class="meter" aria-hidden="true"><b style="width:61%"></b></div><span>of answers name Freshdesk</span></div>
         <div class="kpi"><strong>21%</strong><div class="meter" aria-hidden="true"><b style="width:21%"></b><s style="left:25%"></s></div><span>recommend it first (Zendesk: 25%)</span></div>
@@ -777,13 +777,13 @@ def sample() -> None:
       <p class="kpi-key" aria-hidden="true"><span><i class="kk-bar"></i>Freshdesk</span><span><i class="kk-tick"></i>Leading rival</span></p>
 
       <section class="sheet__sec" aria-labelledby="s1">
-        <h2 id="s1">Where you’re named</h2>
-        <p>Freshdesk is the most-named helpdesk, with the largest share of brand mentions (19%, against Zendesk’s 14%). It was recommended first in all 5 runs of these questions:</p>
+        <h2 id="s1">Where Freshdesk is named</h2>
+        <p>Across the 40 non-branded questions (200 answers), Freshdesk has the largest weighted share of brand mentions (19%, against Zendesk’s 14%). It was recommended first in all 5 runs of these questions:</p>
         <ul class="qlist">{named_html}</ul>
       </section>
 
       <section class="sheet__sec" aria-labelledby="s2">
-        <h2 id="s2">Where you’re missing</h2>
+        <h2 id="s2">Where Freshdesk is less visible</h2>
         <div class="table-wrap"><table>
           <thead><tr><th>Buyer question</th><th>Freshdesk named</th><th>Recommended first instead</th></tr></thead>
           <tbody>{missing_html}</tbody>
@@ -792,17 +792,17 @@ def sample() -> None:
 
       <section class="sheet__sec" aria-labelledby="s3">
         <h2 id="s3">Which pages AI relies on</h2>
-        <p>Answers cite listicles and other vendors’ blogs far more than Freshdesk’s own pages. The sites cited most, counted as answers out of 220:</p>
+        <p>Answers cite listicles and other vendors’ blogs far more than Freshdesk’s own pages. The sites cited most across the full 44-question archive, counted as answers out of 220:</p>
         <div class="hbars" role="img" aria-label="g2.com 56, getmacha.com 40, kayako.com 31 answers out of 220">{bars}</div>
-        <p>On how-to questions, hubspot.com was cited in 20 of 50 answers, and freshworks.com in 9.</p>
+        <p>Across ten how-to questions (50 answers), hubspot.com was cited in 20 of 50 answers, and freshworks.com in 9 of 50.</p>
       </section>
 
       <section class="sheet__sec" aria-labelledby="s4">
-        <h2 id="s4">What to fix first</h2>
+        <h2 id="s4">Questions to investigate next</h2>
         <ol class="fixes">
-          <li><div><b>Answer the niche questions directly.</b><span>Check whether ecommerce support, shared inboxes or AI chatbots match the product’s actual strengths. Where they do, review whether its pages answer those questions clearly. The study does not establish why a brand is absent.</span></div></li>
-          <li><div><b>Own the how-to questions.</b><span>Review practical guides on SLAs, routing and WhatsApp support against product capabilities. HubSpot’s blog was frequently cited in this dated sample.</span></div></li>
-          <li><div><b>Fix the third-party lists.</b><span>Make sure G2 and the most-cited comparison articles describe Freshdesk accurately.</span></div></li>
+          <li><div><b>Check the relevant product pages.</b><span>Check whether ecommerce support, shared inboxes or AI chatbots match the product’s actual strengths. Where they do, review whether its pages answer those questions clearly. The study does not establish why a brand is absent.</span></div></li>
+          <li><div><b>Review the how-to coverage.</b><span>Review practical guides on SLAs, routing and WhatsApp support against product capabilities. HubSpot’s blog was frequently cited in this dated sample.</span></div></li>
+          <li><div><b>Check third-party descriptions.</b><span>Check whether G2 and the cited comparison articles describe Freshdesk accurately before proposing an update. These are investigation hypotheses, not demonstrated causes of the observed counts.</span></div></li>
         </ol>
       </section>
     </article>
@@ -859,7 +859,7 @@ def sitemap() -> str:
 
 LLMS = f"""# Recallant
 
-> AI search visibility research and focused website improvements for B2B software brands. A specialist product from Signal & Syllable. Bengaluru, India. Contact: {EMAIL}.
+> AI search visibility research and focused website improvements for B2B software brands. A specialist product from Signal & Syllable. India. Contact: {EMAIL}.
 
 - [Services]({SITE}/services.html): agreed measurement, evidence-led improvements and follow-up.
 - [Plans]({SITE}/plans.html): snapshot request, INR 14,400 pre-tax Visibility & Enquiry Pilot, scoped audit and ongoing support.
@@ -930,6 +930,8 @@ def main(argv) -> None:
     artistic_pages.apply(b)
     import review_fixes
     review_fixes.apply(b)
+    import evidence_desk
+    evidence_desk.apply(b)
     import social_links
     for social_name, social_doc in list(PAGES.items()):
         PAGES[social_name] = social_links.enrich(social_doc, social_links.load())

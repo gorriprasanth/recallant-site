@@ -1,7 +1,7 @@
 """Correct the interpretation of retained figures without changing the dataset."""
 import re
 
-NOTE = '''<aside class="measurement-note"><strong>How to read these figures</strong><p>This is evidence collected on 6 October 2026. “First named” records naming order among tracked brands; it does not establish an affirmative recommendation. Headline rates use the study’s weighting. Own-site citation rates apply to eligible answers with inline citations, while source counts use the denominator printed beside them. <a href="method.html">Measurement definitions →</a></p></aside>'''
+NOTE = '''<aside class="measurement-note"><strong>How to read these figures</strong><p>This is evidence collected on 6 October 2026. “First named” records naming order among tracked brands; it does not establish an affirmative recommendation. Headline rates use the study’s weighting across 40 non-branded questions (200 answers), including double weight for best-for questions. They are not simple counts divided by all 220 answers. Own-site citation rates apply to eligible answers with inline citations, while source counts use the denominator printed beside them. <a href="method.html">Measurement definitions →</a></p></aside>'''
 
 
 def correct_page(doc, file):

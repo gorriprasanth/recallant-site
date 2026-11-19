@@ -1,0 +1,65 @@
+/* Recallant evidence desk: the research sheet, not a software dashboard. */
+.rc-ed-site{--rc-ed-ink:#172f6a;--rc-ed-paper:#f7f5ed;--rc-ed-yellow:#f2e64c}
+.rc-ed-site .nav__links{gap:20px}
+.rc-ed-site .rc-ed-cover{grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:6%;align-items:start;padding-block:64px 80px}
+.rc-ed-site .rc-ed-cover h1{font-size:clamp(48px,5.4vw,78px);line-height:1.03;letter-spacing:-.045em;margin:24px 0}
+.rc-ed-site .rc-ed-cover .rc-deck{font-size:18px;line-height:1.65;max-width:34em}
+.rc-ed-site .rc-ed-lead{padding-top:30px;min-width:0}
+.rc-ed-site .rc-ed-scope-note{font-size:13px;line-height:1.6;max-width:36em;margin-top:28px;color:#454e60}
+.rc-ed-site .rc-ed-specimen{margin:0;background:#fffefa;border:1px solid #a8adba;padding:30px;box-shadow:9px 9px 0 #e6e3d6;min-width:0}
+.rc-ed-site .rc-ed-specimen figcaption{display:grid;gap:8px;padding-bottom:24px;border-bottom:3px solid var(--rc-ed-ink)}
+.rc-ed-site .rc-ed-specimen figcaption strong{font:400 clamp(26px,2.5vw,34px)/1.12 var(--serif);letter-spacing:-.025em}
+.rc-ed-site .rc-ed-specimen figcaption>span:last-child{font-size:13px;color:#454e60}
+.rc-ed-site .rc-ed-table-wrap{margin-block:22px}
+.rc-ed-site .rc-ed-specimen table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.45;table-layout:fixed}
+.rc-ed-site .rc-ed-specimen caption{text-align:left;font-size:12px;line-height:1.5;color:#454e60;margin-bottom:12px}
+.rc-ed-site .rc-ed-specimen th,.rc-ed-site .rc-ed-specimen td{background:transparent;color:var(--rc-ed-ink);padding:12px 0;border-bottom:1px solid #c4c7ca;vertical-align:top;text-align:left;white-space:normal}
+.rc-ed-site .rc-ed-specimen th{font-weight:400}
+.rc-ed-site .rc-ed-specimen th:last-child,.rc-ed-site .rc-ed-specimen td:last-child{width:68px;text-align:right;padding-left:10px}
+.rc-ed-site .rc-ed-specimen thead th{font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.rc-ed-site .rc-ed-specimen tbody strong{font-size:22px;font-family:var(--serif);font-weight:500;white-space:nowrap}
+.rc-ed-site .rc-ed-annotation{border-left:2px solid #b8bfcc;padding-left:16px;margin-top:20px}
+.rc-ed-site .rc-ed-annotation p{font-size:14px;line-height:1.6;margin:6px 0 0;color:#344364}
+.rc-ed-site .rc-ed-annotation--action{border-left:0;background:#f2e64c;padding:16px}
+.rc-ed-site .rc-ed-source{font-size:12px;line-height:1.6;margin:20px 0 0;color:#454e60}
+.rc-ed-site .rc-ed-source a{text-decoration:underline;text-underline-offset:3px}
+.rc-ed-site .rc-ed-situations{padding-block:48px 64px;border-top:1px solid var(--rc-ed-ink)}
+.rc-ed-site .rc-ed-situations>h2{font-size:clamp(36px,4vw,56px);max-width:22ch}
+.rc-ed-site .rc-ed-situations>p:not(.eyebrow){max-width:55em;margin:20px 0 32px;line-height:1.65}
+.rc-ed-site .rc-case-row{border-bottom:1px solid #c4c7ca;display:grid;grid-template-columns:1fr 1fr auto;align-items:center;gap:24px;padding:24px 0}
+.rc-ed-site .rc-case-row h3{font-size:30px}
+.rc-ed-site .rc-case-row span{font-size:15px;line-height:1.6}
+.rc-ed-site .rc-practice{padding-block:64px;border-top:1px solid #c4c7ca}
+.rc-ed-site .rc-fieldnote aside{transform:none}
+.rc-ed-site .rc-record{margin-top:64px}
+.rc-ed-site .rc-ed-archive{padding-block:48px 64px}
+.rc-ed-site .rc-ed-explorer-details{margin-top:28px;border-block:1px solid #a5adb9}
+.rc-ed-site .rc-ed-explorer-details>summary{font-size:16px;line-height:1.5;font-weight:500;padding:22px 12px;cursor:pointer;background:#eeece1}
+.rc-ed-site .rc-ed-explorer-details[open]>summary{border-bottom:1px solid #a5adb9;margin-bottom:24px}
+.rc-ed-site .rc-ed-explorer-details>summary:focus-visible{outline:3px solid #7e6500;outline-offset:4px}
+.rc-ed-site .rc-ed-reading{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);gap:8%;padding-block:72px 80px;border-top:3px solid var(--rc-ed-ink)}
+.rc-ed-site .rc-ed-reading-head h2{font-size:clamp(40px,4.5vw,66px);line-height:1.04;margin:20px 0 24px}
+.rc-ed-site .rc-ed-reading-head>p:not(.eyebrow){font-size:16px;line-height:1.7;margin-bottom:24px;max-width:34em}
+.rc-ed-site .rc-ed-issues{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.rc-ed-site .rc-ed-issues>a{display:flex;flex-direction:column;border-top:1px solid #a5adb9;padding:24px 0;min-width:0;text-decoration:none}
+.rc-ed-site .rc-ed-issues h3{font-size:32px;line-height:1.1;margin:14px 0}
+.rc-ed-site .rc-ed-issues p{font-size:14px;line-height:1.65;color:#454e60;margin:0 0 20px}
+.rc-ed-site .rc-ed-issues>a>span:last-child{font-size:13px;margin-top:auto;text-decoration:underline;text-underline-offset:4px}
+.rc-ed-site .rc-ed-issues>a:hover h3{text-decoration:underline;text-decoration-color:#a18b00;text-underline-offset:5px}
+.rc-ed-site #get-snapshot{background:#eae7d9;border-top:1px solid #b7b9b3}
+@media(min-width:761px) and (max-width:1080px){.rc-ed-site .nav__links{gap:12px}.rc-ed-site .nav__links a{font-size:12px}.rc-ed-site .rc-wordmark{width:180px}.rc-ed-site .nav__cta>.btn{padding:10px 12px;font-size:12px}.rc-ed-site .rc-ed-specimen{padding:24px}.rc-ed-site .rc-ed-cover{gap:5%}}
+@media(max-width:900px){.rc-ed-site .rc-ed-cover{grid-template-columns:1fr;gap:36px;padding-block:36px 56px}.rc-ed-site .rc-ed-lead{padding:0}.rc-ed-site .rc-ed-cover h1{font-size:clamp(46px,8vw,70px);max-width:17ch}.rc-ed-site .rc-ed-cover .rc-deck{max-width:40em}.rc-ed-site .rc-ed-specimen{max-width:680px;width:100%;box-sizing:border-box}.rc-ed-site .rc-ed-reading{gap:5%;grid-template-columns:1fr 1.2fr}}
+@media(max-width:600px){.rc-ed-site .rc-ed-cover{padding-top:28px}.rc-ed-site .rc-ed-cover h1{font-size:48px;line-height:1.04}.rc-ed-site .rc-ed-cover .rc-deck{font-size:16px}.rc-ed-site .rc-ed-cover .ctas{align-items:flex-start;gap:18px}.rc-ed-site .rc-ed-specimen{padding:20px;box-shadow:5px 5px 0 #e6e3d6}.rc-ed-site .rc-ed-specimen figcaption strong{font-size:29px}.rc-ed-site .rc-ed-specimen th:last-child,.rc-ed-site .rc-ed-specimen td:last-child{width:55px}.rc-ed-site .rc-ed-specimen table{font-size:13px}.rc-ed-site .rc-ed-situations{padding-block:36px}.rc-ed-site .rc-case-row{grid-template-columns:1fr auto;gap:12px}.rc-ed-site .rc-case-row h3{font-size:28px}.rc-ed-site .rc-case-row span{grid-column:1;grid-row:2}.rc-ed-site .rc-case-row b{grid-column:2;grid-row:1}.rc-ed-site .rc-practice{padding-block:44px}.rc-ed-site .rc-record{margin-top:40px}.rc-ed-site .rc-ed-reading{grid-template-columns:1fr;gap:32px;padding-block:44px}.rc-ed-site .rc-ed-issues{gap:0 20px}.rc-ed-site .rc-ed-issues h3{font-size:28px}.rc-ed-site .rc-ed-issues .eyebrow{font-size:11px}.rc-ed-site .rc-ed-issues p{font-size:13px}.rc-ed-site .rc-ed-explorer-details>summary{font-size:14px}}
+@media(max-width:360px){.rc-ed-site .rc-ed-issues{grid-template-columns:1fr}.rc-ed-site .rc-ed-cover h1{font-size:43px}}
+@media(prefers-reduced-motion:reduce){.rc-ed-site *{scroll-behavior:auto}}
+
+/* Review pass: readable labels and comfortable standalone controls. */
+.rc-ed-site .nav__links a,.rc-ed-site .nav__cta a,.rc-ed-site .arrow-link,.rc-ed-site .footer a,.rc-ed-site .rc-ed-issues>a>span:last-child,.rc-ed-site button,.rc-ed-site select{min-height:44px;align-items:center}
+.rc-ed-site .footer a,.rc-ed-site .arrow-link{display:inline-flex}
+.rc-ed-site .eyebrow,.rc-ed-site .rc-ed-source,.rc-ed-site .rc-ed-specimen caption,.rc-ed-site .rc-ed-specimen thead th,.rc-ed-site .rc-ed-issues .eyebrow,.rc-ed-site .fn-small{font-size:13px}
+.rc-ed-site .rc-record>.rc-ed-source{grid-column:1/-1;margin:0;font-size:13px;line-height:1.6;max-width:80em}
+.rc-ed-site .rc-ed-reading{padding-block:44px}
+.rc-ed-site .rc-ed-reading-head h2{font-size:clamp(38px,3.8vw,54px)}
+.rc-ed-site .rc-ed-archive{padding-block:32px 44px}
+.rc-ed-site .rc-ed-archive .rc-section-heading h2{font-size:clamp(34px,3.8vw,50px)}
+.rc-ed-site .rc-fieldnote-title>p{font-size:16px;line-height:1.65;margin-top:20px;max-width:45em}
