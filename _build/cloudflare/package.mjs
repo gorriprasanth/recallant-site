@@ -42,6 +42,20 @@ export function checkPackage(){
   assert.equal(sha(bytes),file.sha256,file.path+' package hash');assert.equal(sha(source),file.sourceSha256,file.path+' source changed after packaging');
   if(file.path!=='privacy.html')assert.equal(sha(bytes),sha(source),file.path+' must retain the exact source bytes');
  }
+ // Every local asset rendered by a public page must ship in the same package.
+ for(const name of publicNames.filter(name=>name.endsWith('.html'))){
+  const html=readFileSync(path.join(output,name),'utf8');
+  for(const match of html.matchAll(/<(?:img|script|link)\b[^>]*>/gi)){
+   const tag=match[0];
+   if(/^<link/i.test(tag)&&!/\brel=["'](?:stylesheet|icon|apple-touch-icon|preload)["']/i.test(tag))continue;
+   const ref=tag.match(/\b(?:src|href)=["']([^"']+)["']/i)?.[1];
+   if(!ref||ref.startsWith('data:'))continue;
+   const resolved=new URL(ref,'https://recallant.com/'+name);
+   if(resolved.origin!=='https://recallant.com')continue;
+   const asset=decodeURIComponent(resolved.pathname).replace(/^\//,'');
+   assert.ok(publicNames.includes(asset),name+' references an unpackaged asset: '+asset);
+  }
+ }
  const privacy=readFileSync(path.join(output,'privacy.html'),'utf8');
  assert.ok(privacy.includes('hosted through Cloudflare'));assert.ok(!privacy.includes('hosted through GitHub Pages'));
  assert.ok(readFileSync(path.join(root,'privacy.html'),'utf8').includes('hosted through GitHub Pages'),'Default source remains accurate until the hosting switch');
