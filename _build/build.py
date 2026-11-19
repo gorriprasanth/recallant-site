@@ -850,7 +850,9 @@ def make_absolute(doc: str) -> str:
 def sitemap() -> str:
     pages = ["", "services.html", "plans.html", "research.html", "helpdesk-study.html", "sample-snapshot.html", "about.html", "method.html", "contact.html", "privacy.html"]
     pages += ['use-cases.html', 'use-case-ai-shortlist.html', 'use-case-priority-page.html']
-    urls = "".join(f"  <url><loc>{SITE}/{p}</loc><lastmod>{UPDATED}</lastmod></url>\n" for p in pages)
+    from fieldnotes_content import ISSUES
+    pages += ['fieldnotes.html'] + ['fieldnotes-'+i['slug']+'.html' for i in ISSUES]
+    urls = "".join(f"  <url><loc>{SITE}/{p}</loc><lastmod>{'2026-11-19' if p.startswith('fieldnotes') or p=='research.html' else UPDATED}</lastmod></url>\n" for p in pages)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             + urls + "</urlset>\n")
 
@@ -923,6 +925,8 @@ def main(argv) -> None:
         PAGES[name]=str(doc)
 
     use_cases.render(b)
+    import fieldnotes
+    fieldnotes.render(b)
     artistic_pages.apply(b)
     import review_fixes
     review_fixes.apply(b)
