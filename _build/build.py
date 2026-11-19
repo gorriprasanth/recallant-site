@@ -932,6 +932,8 @@ def main(argv) -> None:
     review_fixes.apply(b)
     import evidence_desk
     evidence_desk.apply(b)
+    import journal_direction
+    journal_direction.apply(b)
     import social_links
     for social_name, social_doc in list(PAGES.items()):
         PAGES[social_name] = social_links.enrich(social_doc, social_links.load())
