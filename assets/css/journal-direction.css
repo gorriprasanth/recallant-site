@@ -120,3 +120,62 @@
 /* Keep the opening composition inside a typical laptop viewport. */
 @media(min-width:651px){.rj-identity{min-height:560px}.rj-identity-copy{padding-block:45px 80px}.rc-journal .rj-identity h1{font-size:clamp(44px,4.7vw,66px);margin-bottom:20px}.rj-deck{font-size:16px}.rc-journal h1{font-size:clamp(40px,4.2vw,60px)}.rc-journal h2,.rc-journal .rj-section-heading h2,.rc-journal .rj-observation h2{font-size:clamp(31px,3.2vw,44px)}.rj-offers article{padding:25px}.rj-trace-flow{margin-top:25px}.rj-symbol{margin-bottom:18px}.rj-choose,.rj-observation,.rj-library{padding-block:34px}}
 @media(max-width:650px){.rc-journal h1,.rc-journal .rj-identity h1{font-size:39px}.rc-journal h2,.rc-journal .rj-section-heading h2,.rc-journal .rj-observation h2{font-size:30px}.rj-identity-copy{padding-top:28px}.rj-optical-art{max-height:230px;object-fit:contain}.rj-identity{padding-bottom:60px}}
+
+/* Compact reading rhythm. Border lines stay in the layout, never behind text. */
+.rc-journal .band--first{margin-top:0;padding-top:32px}
+.rc-journal .band--first>.wrap>:first-child{margin-top:0}
+.rc-journal .page-hero .wrap{padding-block:6px}
+.rc-journal .page-hero h1{margin-top:15px;margin-bottom:22px}
+.rc-journal main section[id],.rc-journal main article[id],.rc-journal h2[id]{scroll-margin-top:76px}
+.rc-journal .offer-card{box-sizing:border-box;min-width:0}
+.rc-journal .rc-service-index .offer-card{padding:28px 0;align-items:start}
+.rc-journal .rc-service-index .offer-card>.detail-list{padding:6px 0 6px 24px;line-height:1.7}
+.rc-journal .rc-plan-index{align-items:stretch;column-gap:32px}
+.rc-journal .rc-plan-index .offer-card{padding:28px 22px}
+.rc-journal .rc-plan-index .offer-card#visibility-pilot{padding:28px 22px}
+.rc-journal .rc-plan-index .offer-card h2{margin-top:15px;line-height:1.12}
+.rc-journal .offer-card p,.rc-journal .detail-list{line-height:1.7}
+.rc-journal .detail-list li+li{margin-top:8px}
+.rc-journal .rc-method .offer-card,.rc-journal .contact-route{padding-top:25px;padding-bottom:25px}
+.rc-journal .rj-identity h1{max-width:720px;line-height:1.06}
+.rj-offers h3,.rj-section-heading h2,.rj-observation h2{overflow-wrap:normal}
+.rj-section-heading h2{max-width:24ch}
+.rj-offers article{gap:0}
+.rj-offer-footer{align-items:flex-end;padding-top:20px}
+.rj-offer-footer>.rj-fee{margin:0}
+.rj-observation{align-items:start;padding-block:36px;gap:6%;grid-template-columns:.95fr 1.05fr}
+.rj-observation figure{padding-top:4px}
+.rj-observation figcaption{padding-block:0 18px;line-height:1.5}
+.rj-inline-trace{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;margin:23px 0 19px;padding-block:18px;border-block:1px solid #ccd9da;max-width:390px}
+.rj-inline-trace>div{display:flex;align-items:center;gap:10px;min-width:0}
+.rj-inline-trace .rj-symbol{width:27px;height:27px;flex:none;box-shadow:none;background:transparent;color:#426c72;margin:0}
+.rj-inline-trace span{font-size:12px;line-height:1.5;color:#345c63}
+.rj-observation>div>p.rj-reading-note{font-size:12px;line-height:1.65;max-width:42ch;margin:0 0 7px;color:#52696e}
+.rj-library-invite{display:flex;justify-content:space-between;align-items:center;gap:35px;padding-block:30px}
+.rj-library-invite .eyebrow{margin:0 0 10px}
+.rc-journal .rj-library-invite h2{font-size:25px;line-height:1.2;margin:0 0 10px;letter-spacing:-.025em}
+.rj-library-invite p:not(.eyebrow){font-size:13px;line-height:1.6;max-width:69ch;margin:0;color:#536d72}
+.rj-library-invite>.arrow-link{flex:none}
+.rj-close{padding-block:32px}
+@media(min-width:651px){.rj-identity{min-height:500px}.rj-identity-copy{padding-block:40px 75px}.rc-journal .rj-identity h1{font-size:clamp(42px,4.7vw,66px);max-width:720px}.rj-choose{padding-block:32px}.rj-section-heading{margin-bottom:23px}.rj-offers article{padding:24px}.rj-offers h3{min-height:0}.rj-offers article>div>p:not(.rj-offer-type):not(.rj-fee){margin-bottom:20px}}
+@media(max-width:650px){.rc-journal .band--first{margin-top:0;padding-top:24px}.rc-journal .page-hero .wrap{padding-block:0}.rc-journal .page-hero h1{margin-top:13px;margin-bottom:18px}.rc-journal .rc-service-index .offer-card{padding:23px 0;display:block}.rc-journal .rc-service-index .offer-card>.detail-list{margin-top:18px;padding:0 0 0 19px;border-left:0}.rc-journal .rc-service-index .offer-card>.arrow-link{margin-top:13px}.rc-journal .rc-plan-index{display:block}.rc-journal .rc-plan-index .offer-card,.rc-journal .rc-plan-index .offer-card#visibility-pilot{padding:24px 19px}.rc-journal .rj-identity h1{font-size:clamp(34px,9.5vw,47px);line-height:1.08}.rj-identity-copy{padding-top:26px}.rj-identity .ctas{margin-bottom:0}.rj-observation{grid-template-columns:1fr;gap:22px;padding-block:28px}.rj-inline-trace{gap:14px 18px;max-width:none;margin-block:17px;padding-block:16px}.rj-inline-trace span{font-size:11px}.rj-inline-trace .rj-symbol{width:25px;height:25px}.rj-library-invite{flex-direction:column;align-items:start;gap:12px;padding-block:25px}.rc-journal .rj-library-invite h2{font-size:24px}.rj-library-invite p:not(.eyebrow){font-size:12px}.rj-close{padding-block:27px}.rc-journal .rj-close h2{font-size:29px}.rj-result{padding-block:18px}.rj-choose{padding-block:28px}.rj-offers article{padding:23px}.rj-offer-footer{flex-wrap:wrap;gap:16px}}
+
+/* Current-page decoration belongs to navigation links, never breadcrumb text. */
+.rc-journal .rj-breadcrumb [aria-current]::before,.rc-journal .rj-breadcrumb [aria-current]::after,.rc-journal .rj-breadcrumb::before,.rc-journal .rj-breadcrumb::after{content:none!important;display:none!important}
+.rc-journal .rj-breadcrumb{position:relative;isolation:isolate}
+
+.rj-pilot-terms{border:1px solid #bfd0d3;border-radius:5px;background:#edf3f3}
+.rj-pilot-terms>summary{cursor:pointer;padding:20px 24px;min-height:64px;font-size:17px;line-height:1.4;font-weight:500;list-style-position:inside}
+.rj-pilot-terms[open]>summary{border-bottom:1px solid #bfd0d3}
+.rj-pilot-terms-body{padding:24px}
+.rj-pilot-terms-body>.detail-list{margin-top:0}
+.rj-pilot-terms-body>:last-child{margin-bottom:0}
+@media(max-width:650px){.rj-pilot-terms>summary{padding:18px;font-size:15px;min-height:60px}.rj-pilot-terms-body{padding:20px 18px}}
+
+.rc-journal .footer{padding-block:28px 20px}.rc-journal .footer__grid{gap:24px}.rc-journal .footer__base{margin-top:22px;padding-top:16px}.rc-journal .owned-social-links{padding-block:18px!important;margin-top:0!important}
+@media(max-width:650px){.rc-journal .footer__grid{grid-template-columns:1fr 1fr;gap:22px 16px}.rc-journal .footer__brand{grid-column:1/-1}.rc-journal .footer__brand>.brand .rc-wordmark{width:170px}.rc-journal .footer__brand>p{margin-block:8px;font-size:12px}.rc-journal .footer nav h2{margin-bottom:8px}.rc-journal .footer nav a{min-height:36px}.rc-journal .footer__base{gap:12px;flex-wrap:wrap}.rc-journal .owned-social-links ul{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 8px!important}.rc-journal .owned-social-links a{font-size:12px!important;min-height:40px!important}.rc-journal .rj-section-heading h2{font-size:28px!important}.rj-offers article{padding:22px}.rj-offers article>div>p:not(.rj-offer-type):not(.rj-fee){font-size:14px;line-height:1.5}}
+
+.rc-journal .footer__grid nav ul{gap:0}.rc-journal .footer__grid nav a{min-height:40px}.rc-journal .footer__grid nav li{margin:0}.rc-journal .owned-social-links details[open] summary{margin-bottom:12px}.rc-journal .footer__brand>p{max-width:34ch}
+
+.rc-journal .wrap{width:calc(100% - 96px);max-width:1200px;margin-inline:auto}.rc-journal .page-hero h1{line-height:1.12;margin-bottom:18px}.rc-journal .page-hero .lede{font-size:17px;line-height:1.55}.rc-journal .closing-cta{padding-top:0}.rc-journal .closing-cta .h2{font-size:36px;line-height:1.15}.rc-journal .rc-plan-index .offer-card h2{font-size:30px;margin:14px 0}.rc-journal .rc-plan-index .offer-card{padding-block:25px}.rc-journal .rc-plan-index .offer-card .lede{font-size:25px}.rc-journal .detail-list{line-height:1.65}
+@media(max-width:650px){.rc-journal .wrap{width:calc(100% - 48px)}.rc-journal .rj-breadcrumb{padding-top:15px}.rc-journal .page-hero h1{font-size:34px!important;line-height:1.13}.rc-journal .page-hero .lede{font-size:16px}.rc-journal .rc-plan-index .offer-card h2{font-size:27px}.rc-journal .rc-plan-index .offer-card,.rc-journal .rc-plan-index .offer-card#visibility-pilot{padding:22px}.rc-journal .closing-cta .h2{font-size:29px}.rc-journal .rj-offers h3{font-size:25px}.rc-journal .rj-offer-type{margin-bottom:12px}.rc-journal .rj-offer-footer{padding-top:15px}.rc-journal .rj-choose .rj-section-heading h2{font-size:27px!important}.rc-journal .rj-library-invite h2{font-size:23px!important}}

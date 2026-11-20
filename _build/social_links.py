@@ -12,14 +12,15 @@ def enrich(html, links):
         old.decompose()
     section = doc.new_tag('nav', attrs={'class':'owned-social-links', 'aria-label':'Follow us'})
     section['style'] = 'display:block;max-width:1280px;margin:24px auto 0;padding:24px clamp(20px,4vw,64px);border-top:1px solid currentColor'
-    heading = doc.new_tag('p'); heading.string = 'Follow us'; heading['style'] = 'margin:0 0 12px;font-weight:600'
-    section.append(heading)
+    disclosure = doc.new_tag('details')
+    heading = doc.new_tag('summary'); heading.string = 'Follow us on our channels'; heading['style'] = 'min-height:44px;cursor:pointer;font-weight:600;line-height:44px'
+    disclosure.append(heading)
     listing = doc.new_tag('ul'); listing['style'] = 'display:flex;flex-wrap:wrap;gap:4px 24px;list-style:none;margin:0;padding:0'
     for item in links:
         li = doc.new_tag('li'); a = doc.new_tag('a', href=item['url'])
         a.string = item['label']; a['style'] = 'display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px'
         li.append(a); listing.append(li)
-    section.append(listing); footer.append(section)
+    disclosure.append(listing); section.append(disclosure); footer.append(section)
     company = next(x['url'] for x in links if x['label']=='LinkedIn')
     for a in footer.select('a[href]'):
         if 'linkedin.com/in/' in a['href']:
