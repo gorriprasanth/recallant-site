@@ -110,3 +110,13 @@
 
 /* Keep optical artwork clear of the reading column. */
 @media(min-width:651px){.rj-optical-art{inset:0 0 0 auto;width:76%;object-fit:contain;object-position:right center;mask-image:linear-gradient(90deg,transparent,#000 20%)}.rj-identity:after{background:linear-gradient(90deg,#082e35 0%,#082e35ed 28%,transparent 55%)}.rj-deck{max-width:33ch}.rj-identity{min-height:650px}}
+
+/* Shorter transitions between sections; portrait remains supporting information. */
+.rc-journal .band{padding-block:42px}.rc-journal .band--first{padding-top:28px}
+.rc-journal .profile{padding:22px;max-width:310px;justify-self:end}.rc-journal .profile img{width:160px;max-width:100%;height:auto;aspect-ratio:1}
+.rj-choose,.rj-observation,.rj-library{padding-block:42px}.rj-trace{padding-block:40px 28px}.rj-section-heading{margin-bottom:25px}
+@media(max-width:650px){.rc-journal .band{padding-block:30px}.rc-journal .profile{justify-self:start;width:100%;max-width:310px}.rc-journal .profile img{width:130px}.rj-choose,.rj-observation,.rj-library{padding-block:30px}}
+
+/* Keep the opening composition inside a typical laptop viewport. */
+@media(min-width:651px){.rj-identity{min-height:560px}.rj-identity-copy{padding-block:45px 80px}.rc-journal .rj-identity h1{font-size:clamp(44px,4.7vw,66px);margin-bottom:20px}.rj-deck{font-size:16px}.rc-journal h1{font-size:clamp(40px,4.2vw,60px)}.rc-journal h2,.rc-journal .rj-section-heading h2,.rc-journal .rj-observation h2{font-size:clamp(31px,3.2vw,44px)}.rj-offers article{padding:25px}.rj-trace-flow{margin-top:25px}.rj-symbol{margin-bottom:18px}.rj-choose,.rj-observation,.rj-library{padding-block:34px}}
+@media(max-width:650px){.rc-journal h1,.rc-journal .rj-identity h1{font-size:39px}.rc-journal h2,.rc-journal .rj-section-heading h2,.rc-journal .rj-observation h2{font-size:30px}.rj-identity-copy{padding-top:28px}.rj-optical-art{max-height:230px;object-fit:contain}.rj-identity{padding-bottom:60px}}
